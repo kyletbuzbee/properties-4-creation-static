@@ -1,0 +1,33 @@
+# Dependencies
+/node_modules
+
+# Build output
+/static-site
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.test
+.env.production
+
+# Editor directories and files
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore build scripts and temporary files
+/build-static-site.ps1
+/convert-astro.ps1
+/reorganize-astro.ps1
+
+# Ignore response files
+/response_*

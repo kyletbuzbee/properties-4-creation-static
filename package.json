@@ -4,8 +4,8 @@
   "description": "Veteran & family housing website in East Texas",
   "main": "src/index.html",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy && npm run optimize && npm run minify && npm run strip-console",
+    "dev": "npx @11ty/eleventy@^2.0.1 --serve",
+    "build": "npx @11ty/eleventy@^2.0.1 && npm run optimize && npm run minify && npm run strip-console",
     "build:prod": "npm run build",
     "optimize": "npm run optimize:css && npm run optimize:js && npm run optimize:images",
     "optimize:css": "node scripts/simple-optimize-css.js",

@@ -1,19 +1,19 @@
 ================================================================================
 FILE CONVERSION SUMMARY REPORT
 ================================================================================
-Generated: 2025-12-26 01:25:25
+Generated: 2025-12-26 09:00:33
 Source folder: .
 Output file: consolidated_output.txt
 Excluded directories: node_modules, codeReview, .git, .clinerules, .txt, .md, .py
 
 STATISTICS:
 ----------------------------------------
-Total files scanned: 516
-Files converted: 100
-Files skipped: 416
+Total files scanned: 529
+Files converted: 107
+Files skipped: 422
 Errors: 0
-Total characters: 1194093
-Total lines: 35743
+Total characters: 1247433
+Total lines: 37636
 
 SKIPPED FILES:
 ----------------------------------------
@@ -157,9 +157,12 @@ _site\images\properties\properties-mineola-studio-placeholder.jpg
 _site\images\properties\properties-mineola-studio.webp
 _site\images\properties\properties-tyler-ranch-home-400w.webp
 _site\images\properties\properties-tyler-ranch-home-placeholder.jpg
+build-static-site.ps1
 CNAME
 code-review.py
 consolidated_output.txt
+conversion_summary.txt
+convert-astro.ps1
 deploy\images\backgrounds\hero-pattern.svg
 deploy\images\banners\hero-about-us-banner-400w.webp
 deploy\images\banners\hero-about-us-banner-placeholder.jpg
@@ -432,6 +435,9 @@ images\properties\properties-mineola-studio-placeholder.jpg
 images\properties\properties-mineola-studio.webp
 images\properties\properties-tyler-ranch-home-400w.webp
 images\properties\properties-tyler-ranch-home-placeholder.jpg
+IMPLEMENTATION_COMPLETE.md
+MIGRATION_READY.md
 README.md
+reorganize-astro.ps1
 
 ================================================================================

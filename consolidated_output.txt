@@ -1,5 +1,5 @@
 CONSOLIDATED PROJECT FILES
-Generated: 2025-12-26 01:25:25
+Generated: 2025-12-26 09:00:29
 Source: .
 Output: consolidated_output.txt
 ================================================================================
@@ -11,6 +11,8 @@ PROJECT TREE:
 │   ├── agents
 │   └── workflows
 ├── CNAME
+├── IMPLEMENTATION_COMPLETE.md
+├── MIGRATION_READY.md
 ├── README.md
 ├── _site
 │   ├── .nojekyll
@@ -260,8 +262,11 @@ PROJECT TREE:
 │   │   └── index.html
 │   └── tyler-ranch-home
 │       └── index.html
+├── build-static-site.ps1
 ├── code-review.py
 ├── consolidated_output.txt
+├── conversion_summary.txt
+├── convert-astro.ps1
 ├── deploy
 │   ├── css
 │   │   ├── base
@@ -595,7 +600,20 @@ PROJECT TREE:
 │       ├── properties-mineola-studio.webp
 │       ├── properties-tyler-ranch-home-400w.webp
 │       └── properties-tyler-ranch-home-placeholder.jpg
-└── package.json
+├── package.json
+├── reorganize-astro.ps1
+├── static
+│   ├── css
+│   │   ├── base
+│   │   │   ├── design-tokens.css
+│   │   │   ├── reset.css
+│   │   │   └── typography.css
+│   │   └── main.css
+│   └── js
+│       └── main.js
+└── templates
+    ├── base.html
+    └── index.html
 
 ================================================================================
 
@@ -6548,8 +6566,8 @@ textarea:focus-visible {
 
 --------------------------------------------------------------------------------
 FILE: _site\css\main.css
-SIZE: 8752 bytes
-MODIFIED: 2025-12-25 15:10:21
+SIZE: 9511 bytes
+MODIFIED: 2025-12-26 08:53:29
 ================================================================================
 /**
  * Main Stylesheet - Properties 4 Creations
@@ -6780,6 +6798,47 @@ MODIFIED: 2025-12-25 15:10:21
 /* Spacing Utilities - Padding */
 .u-p-0 {
   padding: 0 !important;
+}
+
+/* ========================================
+   Micro-Interactions and Animations
+   ======================================== */
+
+/* Hover States */
+.btn:hover, .nav-link:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Subtle Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Loading Transitions */
+.loading {
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.loading.complete {
+  opacity: 1;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
 .u-p-1 {
   padding: var(--spacing-1) !important;
@@ -10562,8 +10621,8 @@ MODIFIED: 2025-12-26 00:56:56
 
 --------------------------------------------------------------------------------
 FILE: _site\index.html
-SIZE: 20080 bytes
-MODIFIED: 2025-12-26 00:56:56
+SIZE: 20118 bytes
+MODIFIED: 2025-12-26 08:53:07
 ================================================================================
 
 <!doctype html>
@@ -10878,10 +10937,10 @@ MODIFIED: 2025-12-26 00:56:56
     </div>
   </div>
 </footer>
+<script type='application/json' id='properties-data'>
 
-  <script type='application/json' id='properties-data'>
+  [{"id":"tyler-ranch-home","title":"Tyler Ranch Home","location":"Tyler, TX","price":{"amount":1100,"currency":"USD","period":"month","formatted":"$1,100/mo"},"availability":"available","datePosted":"2025-11-15","featured":true,"lastUpdated":"2025-11-23","story_description":"Newly renovated 3BR home with quartz counters and new HVAC. Section 8 accepted.","tags":["Section 8 Ready","Veteran Priority"],"trust_badges":["Certified Renovation","ADA Compliant","Veteran-Owned"],"bedrooms":3,"bathrooms":2,"sqft":1400,"images":["/images/properties/projects-tyler-ranch-home-400w.webp"],"url":"projects/tyler-ranch-home.html","lat":32.3512,"lng":-95.3011,"type":"Single Family"},{"id":"longview-victorian","title":"Longview Victorian","location":"Longview, TX","price":{"amount":1300,"currency":"USD","period":"month","formatted":"$1,300/mo"},"availability":"available","datePosted":"2025-11-10","featured":true,"lastUpdated":"2025-11-23","story_description":"Historic Victorian home with modern updates and spacious rooms. Fully renovated kitchen and bathrooms.","tags":["Market Rate","Historic Home","Pet Friendly"],"trust_badges":["Historic Preservation","Pet-Friendly","Modern Amenities"],"bedrooms":4,"bathrooms":3,"sqft":2200,"images":["/images/properties/properties-longview-victorian-400w.webp"],"url":"projects/longview-victorian.html","lat":32.5007,"lng":-94.7405,"type":"Historic"},{"id":"jefferson-riverfront","title":"Jefferson Riverfront","location":"Jefferson, TX","price":{"amount":900,"currency":"USD","period":"month","formatted":"$900/mo"},"availability":"available","datePosted":"2025-11-20","featured":false,"lastUpdated":"2025-11-23","story_description":"Peaceful apartment near the river with stunning views. ADA accessible and Section 8 approved.","tags":["Section 8 Ready","Waterfront","ADA Accessible"],"trust_badges":["Section 8 Voucher","ADA Compliant","Waterfront Views"],"bedrooms":2,"bathrooms":1,"sqft":950,"images":["/images/properties/properties-jefferson-river-front-400w.webp"],"url":"projects/jefferson-riverfront.html","lat":32.7574,"lng":-94.3438,"type":"Waterfront"},{"id":"kemp-townhome","title":"Kemp Townhome","location":"Kemp, TX","price":{"amount":650,"currency":"USD","period":"month","formatted":"$650/mo"},"availability":"available","datePosted":"2025-12-01","featured":true,"lastUpdated":"2025-12-09","story_description":"Low-maintenance townhome perfect for veterans seeking easy living. Section 8 eligible with community amenities nearby.","tags":["Section 8 Ready","Low Maintenance","Veteran Priority"],"trust_badges":["Community Safe","Section 8 Voucher","Peaceful Environment"],"bedrooms":1,"bathrooms":1,"sqft":650,"images":["/images/properties/properties-kemp-townhome-400w.webp"],"url":"projects/kemp-townhome.html","lat":32.4421,"lng":-96.2253,"type":"Townhome"},{"id":"marshall-historic-farm","title":"Marshall Historic Farmhouse","location":"Marshall, TX","price":{"amount":1200,"currency":"USD","period":"month","formatted":"$1,200/mo"},"availability":"available","datePosted":"2025-11-28","featured":true,"lastUpdated":"2025-12-09","story_description":"Restored historic farmhouse with acreage for large families. Section 8 approved with character and space.","tags":["Section 8 Ready","Large Family","Historic Property"],"trust_badges":["Family Friendly","Spacious Yard","Historic Restoration"],"bedrooms":4,"bathrooms":2,"sqft":2400,"images":["/images/properties/properties-marshall-farmhouse-400w.webp"],"url":"projects/marshall-historic-farm.html","lat":32.5467,"lng":-94.3674,"type":"Historic"},{"id":"mineola-modern-studio","title":"Mineola Modern Studio","location":"Mineola, TX","price":{"amount":525,"currency":"USD","period":"month","formatted":"$525/mo"},"availability":"available","datePosted":"2025-12-05","featured":false,"lastUpdated":"2025-12-09","story_description":"Efficient studio apartment for independent veterans or small households. Clean, modern, and affordable.","tags":["Market Rate","Pet Friendly","Modern Amenities"],"trust_badges":["Senior Friendly","Pet Policy Flexible","Low Cost"],"bedrooms":0,"bathrooms":1,"sqft":425,"images":["/images/properties/properties-mineola-studio-400w.webp"],"url":"projects/mineola-modern-studio.html","lat":32.6629,"lng":-95.4883,"type":"Studio"},{"id":"canton-suburban-home","title":"Canton Suburban Home","location":"Canton, TX","price":{"amount":1500,"currency":"USD","period":"month","formatted":"$1,500/mo"},"availability":"coming-soon","datePosted":"2025-12-07","featured":false,"lastUpdated":"2025-12-09","story_description":"Suburban dream home with excellent schools and quiet neighborhood. Perfect for families with children.","tags":["Family Friendly","Excellent Schools","Quiet Neighborhood"],"trust_badges":["Top Rated Schools","Safe Community","Growing Area"],"bedrooms":3,"bathrooms":2,"sqft":1800,"images":["/images/properties/properties-canton-suburban-home-400w.webp"],"url":"projects/canton-suburban-home.html","lat":32.5568,"lng":-95.8633,"type":"Suburban"},{"id":"van-downtown-loft","title":"Van Downtown Loft","location":"Van, TX","price":{"amount":800,"currency":"USD","period":"month","formatted":"$800/mo"},"availability":"available","datePosted":"2025-12-02","featured":false,"lastUpdated":"2025-12-09","story_description":"Converted downtown space with urban feel. Walking distance to community services and public transport.","tags":["Market Rate","Urban Location","Convenient Access"],"trust_badges":["City Center","Public Transit","Walking Distance Services"],"bedrooms":2,"bathrooms":1,"sqft":900,"images":["/images/properties/properties-van-downtown-loft-400w.webp"],"url":"projects/van-downtown-loft.html","lat":32.5249,"lng":-95.6377,"type":"Urban"}]
 
-      [{"id":"tyler-ranch-home","title":"Tyler Ranch Home","location":"Tyler, TX","price":{"amount":1100,"currency":"USD","period":"month","formatted":"$1,100/mo"},"availability":"available","datePosted":"2025-11-15","featured":true,"lastUpdated":"2025-11-23","story_description":"Newly renovated 3BR home with quartz counters and new HVAC. Section 8 accepted.","tags":["Section 8 Ready","Veteran Priority"],"trust_badges":["Certified Renovation","ADA Compliant","Veteran-Owned"],"bedrooms":3,"bathrooms":2,"sqft":1400,"images":["images/properties/before-after/tyler-ranch-home.webp"],"url":"projects/tyler-ranch-home.html","lat":32.3512,"lng":-95.3011,"type":"Single Family"},{"id":"longview-victorian","title":"Longview Victorian","location":"Longview, TX","price":{"amount":1300,"currency":"USD","period":"month","formatted":"$1,300/mo"},"availability":"available","datePosted":"2025-11-10","featured":true,"lastUpdated":"2025-11-23","story_description":"Historic Victorian home with modern updates and spacious rooms. Fully renovated kitchen and bathrooms.","tags":["Market Rate","Historic Home","Pet Friendly"],"trust_badges":["Historic Preservation","Pet-Friendly","Modern Amenities"],"bedrooms":4,"bathrooms":3,"sqft":2200,"images":["images/properties/properties-longview-victorian.webp"],"url":"projects/longview-victorian.html","lat":32.5007,"lng":-94.7405,"type":"Historic"},{"id":"jefferson-riverfront","title":"Jefferson Riverfront","location":"Jefferson, TX","price":{"amount":900,"currency":"USD","period":"month","formatted":"$900/mo"},"availability":"available","datePosted":"2025-11-20","featured":false,"lastUpdated":"2025-11-23","story_description":"Peaceful apartment near the river with stunning views. ADA accessible and Section 8 approved.","tags":["Section 8 Ready","Waterfront","ADA Accessible"],"trust_badges":["Section 8 Voucher","ADA Compliant","Waterfront Views"],"bedrooms":2,"bathrooms":1,"sqft":950,"images":["images/properties/properties-jefferson-river-front.webp"],"url":"projects/jefferson-riverfront.html","lat":32.7574,"lng":-94.3438,"type":"Waterfront"},{"id":"kemp-townhome","title":"Kemp Townhome","location":"Kemp, TX","price":{"amount":650,"currency":"USD","period":"month","formatted":"$650/mo"},"availability":"available","datePosted":"2025-12-01","featured":true,"lastUpdated":"2025-12-09","story_description":"Low-maintenance townhome perfect for veterans seeking easy living. Section 8 eligible with community amenities nearby.","tags":["Section 8 Ready","Low Maintenance","Veteran Priority"],"trust_badges":["Community Safe","Section 8 Voucher","Peaceful Environment"],"bedrooms":1,"bathrooms":1,"sqft":650,"images":["images/properties/properties-kemp-townhome.webp"],"url":"projects/kemp-townhome.html","lat":32.4421,"lng":-96.2253,"type":"Townhome"},{"id":"marshall-historic-farm","title":"Marshall Historic Farmhouse","location":"Marshall, TX","price":{"amount":1200,"currency":"USD","period":"month","formatted":"$1,200/mo"},"availability":"available","datePosted":"2025-11-28","featured":true,"lastUpdated":"2025-12-09","story_description":"Restored historic farmhouse with acreage for large families. Section 8 approved with character and space.","tags":["Section 8 Ready","Large Family","Historic Property"],"trust_badges":["Family Friendly","Spacious Yard","Historic Restoration"],"bedrooms":4,"bathrooms":2,"sqft":2400,"images":["images/properties/properties-marshall-farmhouse.webp"],"url":"projects/marshall-historic-farm.html","lat":32.5467,"lng":-94.3674,"type":"Historic"},{"id":"mineola-modern-studio","title":"Mineola Modern Studio","location":"Mineola, TX","price":{"amount":525,"currency":"USD","period":"month","formatted":"$525/mo"},"availability":"available","datePosted":"2025-12-05","featured":false,"lastUpdated":"2025-12-09","story_description":"Efficient studio apartment for independent veterans or small households. Clean, modern, and affordable.","tags":["Market Rate","Pet Friendly","Modern Amenities"],"trust_badges":["Senior Friendly","Pet Policy Flexible","Low Cost"],"bedrooms":0,"bathrooms":1,"sqft":425,"images":["images/properties/properties-mineola-studio.webp"],"url":"projects/mineola-modern-studio.html","lat":32.6629,"lng":-95.4883,"type":"Studio"},{"id":"canton-suburban-home","title":"Canton Suburban Home","location":"Canton, TX","price":{"amount":1500,"currency":"USD","period":"month","formatted":"$1,500/mo"},"availability":"coming-soon","datePosted":"2025-12-07","featured":false,"lastUpdated":"2025-12-09","story_description":"Suburban dream home with excellent schools and quiet neighborhood. Perfect for families with children.","tags":["Family Friendly","Excellent Schools","Quiet Neighborhood"],"trust_badges":["Top Rated Schools","Safe Community","Growing Area"],"bedrooms":3,"bathrooms":2,"sqft":1800,"images":["images/properties/properties-canton-suburban-home.webp"],"url":"projects/canton-suburban-home.html","lat":32.5568,"lng":-95.8633,"type":"Suburban"},{"id":"van-downtown-loft","title":"Van Downtown Loft","location":"Van, TX","price":{"amount":800,"currency":"USD","period":"month","formatted":"$800/mo"},"availability":"available","datePosted":"2025-12-02","featured":false,"lastUpdated":"2025-12-09","story_description":"Converted downtown space with urban feel. Walking distance to community services and public transport.","tags":["Market Rate","Urban Location","Convenient Access"],"trust_badges":["City Center","Public Transit","Walking Distance Services"],"bedrooms":2,"bathrooms":1,"sqft":900,"images":["images/properties/properties-van-downtown-loft.webp"],"url":"projects/van-downtown-loft.html","lat":32.5249,"lng":-95.6377,"type":"Urban"}]
 
     </script>
 
@@ -14142,8 +14201,8 @@ export default PropertyFilter;
 
 --------------------------------------------------------------------------------
 FILE: _site\js\main.js
-SIZE: 25623 bytes
-MODIFIED: 2025-12-25 22:08:00
+SIZE: 25801 bytes
+MODIFIED: 2025-12-26 08:53:52
 ================================================================================
 /**
  * Main Application Entry Point
@@ -14737,6 +14796,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const lazyLoader = new LazyLoader();
     window.lazyLoader = lazyLoader;
+    
+    // Apply lazy loading to all images
+    document.querySelectorAll('img').forEach(img => {
+      if (!img.loading) {
+        img.loading = 'lazy';
+      }
+    });
   } catch (e) {
     // LazyLoader initialization failed silently
   }
@@ -36993,4 +37059,1891 @@ MODIFIED: 2025-12-25 02:52:12
     }
   ]
 }
+
+--------------------------------------------------------------------------------
+FILE: static\css\base\design-tokens.css
+SIZE: 2910 bytes
+MODIFIED: 2025-12-26 03:37:53
+================================================================================
+:root {
+  /* Brand Colors */
+  --color-primary-navy: #0b1120;
+  --color-primary-wood: #c28e5a;
+  --color-primary-walnut: #8b5e3c;
+  --color-primary-beige: #f5f5f0;
+  --color-primary-gold: #c28e5a;
+
+  /* Neutral Colors */
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-gray-50: #f9fafb;
+  --color-neutral-gray-100: #f3f4f6;
+  --color-neutral-gray-200: #e5e7eb;
+  --color-neutral-gray-300: #d1d5db;
+  --color-neutral-gray-400: #9ca3af;
+  --color-neutral-gray-500: #6b7280;
+  --color-neutral-gray-600: #4b5563;
+  --color-neutral-gray-700: #374151;
+  --color-neutral-gray-800: #1f2937;
+  --color-neutral-gray-900: #111827;
+
+  /* Semantic Colors */
+  --color-semantic-error: #ef4444;
+  --color-semantic-success: #10b981;
+  --color-semantic-warning: #f59e0b;
+  --color-semantic-info: #3b82f6;
+
+  /* Typography */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Merriweather', Georgia, serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* Border radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-base: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-none: 0 0 #0000;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Z-index */
+  --z-index-skip-link: 999999;
+  --z-index-header: 1000;
+  --z-index-modal: 10000;
+  --z-index-toast: 10001;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --color-primary-navy: #f5f5f0;
+  --color-primary-wood: #d99a6a;
+  --color-primary-walnut: #b87a4a;
+  --color-primary-beige: #0b1120;
+  --color-primary-gold: #d99a6a;
+
+  --color-neutral-white: #0b1120;
+  --color-neutral-black: #f5f5f0;
+  --color-neutral-gray-50: #1f2937;
+  --color-neutral-gray-100: #111827;
+  --color-neutral-gray-200: #374151;
+  --color-neutral-gray-300: #4b5563;
+  --color-neutral-gray-400: #6b7280;
+  --color-neutral-gray-500: #9ca3af;
+  --color-neutral-gray-600: #d1d5db;
+  --color-neutral-gray-700: #e5e7eb;
+  --color-neutral-gray-800: #f3f4f6;
+  --color-neutral-gray-900: #f9fafb;
+}
+
+--------------------------------------------------------------------------------
+FILE: static\css\base\reset.css
+SIZE: 1132 bytes
+MODIFIED: 2025-12-26 03:38:48
+================================================================================
+/* CSS Reset - Modern approach */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+--------------------------------------------------------------------------------
+FILE: static\css\base\typography.css
+SIZE: 2569 bytes
+MODIFIED: 2025-12-26 03:40:46
+================================================================================
+/* Typography Base Styles */
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--color-primary-navy);
+  background-color: var(--color-primary-beige);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-4);
+  color: var(--color-primary-navy);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Text elements */
+p {
+  margin-bottom: var(--spacing-4);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+small, .text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  color: var(--color-primary-wood);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-walnut);
+  text-decoration: underline;
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Font weights */
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Color utilities */
+.text-navy {
+  color: var(--color-primary-navy);
+}
+
+.text-gold {
+  color: var(--color-primary-gold);
+}
+
+.text-white {
+  color: var(--color-neutral-white);
+}
+
+.text-dark {
+  color: var(--color-neutral-gray-900);
+}
+
+.text-light {
+  color: var(--color-neutral-gray-300);
+}
+
+.text-error {
+  color: var(--color-semantic-error);
+}
+
+.text-success {
+  color: var(--color-semantic-success);
+}
+
+.text-warning {
+  color: var(--color-semantic-warning);
+}
+
+.text-info {
+  color: var(--color-semantic-info);
+}
+
+--------------------------------------------------------------------------------
+FILE: static\css\main.css
+SIZE: 12960 bytes
+MODIFIED: 2025-12-26 03:45:22
+================================================================================
+/*
+ * Properties 4 Creations - Main Stylesheet
+ * Consolidated and optimized CSS structure
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+@import 'base/design-tokens.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* ========================================
+   Layout Components
+   ======================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+  width: 100%;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--spacing-8);
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
+/* Flex System */
+.flex {
+  display: flex;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Spacing Utilities */
+.mt-0 { margin-top: 0 !important; }
+.mt-4 { margin-top: var(--spacing-4) !important; }
+.mt-8 { margin-top: var(--spacing-8) !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-4 { margin-bottom: var(--spacing-4) !important; }
+.mb-8 { margin-bottom: var(--spacing-8) !important; }
+.py-4 { padding-top: var(--spacing-4) !important; padding-bottom: var(--spacing-4) !important; }
+.py-8 { padding-top: var(--spacing-8) !important; padding-bottom: var(--spacing-8) !important; }
+
+/* ========================================
+   Components
+   ======================================== */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background-color: var(--color-primary-wood);
+  color: var(--color-neutral-white);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-primary-walnut);
+  color: var(--color-neutral-white);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary-gold);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary-wood);
+  color: var(--color-neutral-white);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-wood);
+  border: 2px solid var(--color-primary-wood);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-primary-wood);
+  color: var(--color-neutral-white);
+}
+
+.btn-lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: 1.1rem;
+}
+
+/* Cards */
+.card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   Layout Components
+   ======================================== */
+
+/* Header */
+.header-glass {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(11, 17, 32, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: var(--z-index-header);
+  border-bottom: 1px solid rgba(194, 142, 90, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: var(--spacing-3);
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
+
+.brand-text {
+  font-family: var(--font-family-heading);
+  color: var(--color-neutral-white);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-6);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--color-neutral-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--color-primary-gold);
+}
+
+.nav-link.active {
+  color: var(--color-primary-gold);
+  border-bottom: 2px solid var(--color-primary-gold);
+  padding-bottom: var(--spacing-1);
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: var(--z-index-skip-link);
+  background: var(--color-primary-gold);
+  color: var(--color-primary-navy);
+  padding: var(--spacing-2) var(--spacing-4);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+
+.skip-link:focus {
+  left: var(--spacing-4);
+  top: var(--spacing-4);
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 60px;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 17, 32, 0.8) 0%,
+    rgba(11, 17, 32, 0.6) 100%
+  ), url('/images/backgrounds/hero-pattern.svg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-neutral-white);
+  padding: var(--spacing-24) var(--spacing-4);
+  text-align: center;
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-lg);
+  width: 100%;
+}
+
+.hero h2 {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-4);
+  line-height: 1.2;
+  color: var(--color-neutral-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: var(--spacing-2);
+  opacity: 0.95;
+  color: var(--color-neutral-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: var(--spacing-8);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+  padding: var(--spacing-12) var(--spacing-4) var(--spacing-4);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+.footer-section h3,
+.footer-section h4 {
+  font-family: var(--font-family-heading);
+  margin-bottom: var(--spacing-4);
+  color: var(--color-primary-gold);
+}
+
+.footer-section a {
+  color: var(--color-neutral-white);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+  color: var(--color-primary-gold);
+}
+
+.veteran-badge {
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-3);
+  background: rgba(194, 142, 90, 0.2);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(194, 142, 90, 0.2);
+  padding-top: var(--spacing-8);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ========================================
+   Page-Specific Components
+   ======================================== */
+
+/* Property Cards */
+.property-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.property-image {
+  width: 100%;
+  height: 250px;
+  background: 
+    linear-gradient(135deg, rgba(11, 17, 32, 0.7), rgba(194, 142, 90, 0.7)),
+    url('') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-white);
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.property-content {
+  padding: var(--spacing-6);
+}
+
+.property-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-2);
+}
+
+.property-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4);
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-4) 0;
+  border-top: 1px solid var(--color-neutral-gray-200);
+  border-bottom: 1px solid var(--color-neutral-gray-200);
+}
+
+.detail-item {
+  text-align: center;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  color: var(--color-neutral-gray-600);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-semibold);
+}
+
+.detail-value {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-gold);
+}
+
+.property-tags {
+  display: flex;
+  gap: var(--spacing-2);
+  margin: var(--spacing-4) 0;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: rgba(194, 142, 90, 0.15);
+  color: var(--color-primary-navy);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+/* Display Utilities */
+.u-hidden { display: none !important; }
+.u-block { display: block !important; }
+.u-inline { display: inline !important; }
+.u-inline-block { display: inline-block !important; }
+.u-flex { display: flex !important; }
+.u-inline-flex { display: inline-flex !important; }
+.u-grid { display: grid !important; }
+
+/* Flexbox Utilities */
+.u-flex-row { flex-direction: row; }
+.u-flex-column { flex-direction: column; }
+.u-flex-wrap { flex-wrap: wrap; }
+.u-flex-nowrap { flex-wrap: nowrap; }
+.u-justify-start { justify-content: flex-start; }
+.u-justify-end { justify-content: flex-end; }
+.u-justify-center { justify-content: center; }
+.u-justify-between { justify-content: space-between; }
+.u-justify-around { justify-content: space-around; }
+.u-align-start { align-items: flex-start; }
+.u-align-end { align-items: flex-end; }
+.u-align-center { align-items: center; }
+.u-align-stretch { align-items: stretch; }
+
+/* Width Utilities */
+.u-w-full { width: 100%; }
+.u-w-auto { width: auto; }
+.u-max-w-sm { max-width: 640px; }
+.u-max-w-md { max-width: 768px; }
+.u-max-w-lg { max-width: 1024px; }
+.u-max-w-xl { max-width: 1280px; }
+
+/* Accessibility Utilities */
+.u-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.u-sr-only-focusable:focus,
+.u-sr-only-focusable:active {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-3);
+  }
+
+  .grid {
+    gap: var(--spacing-4);
+    grid-template-columns: 1fr;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+    padding: var(--spacing-4) 0;
+  }
+
+  .hero {
+    padding: var(--spacing-16) var(--spacing-3);
+    min-height: 50vh;
+  }
+
+  .hero-content {
+    padding: var(--spacing-6);
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .properties-grid {
+    padding: var(--spacing-4);
+  }
+
+  .property-details {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 0 var(--spacing-2);
+  }
+}
+
+--------------------------------------------------------------------------------
+FILE: static\js\main.js
+SIZE: 16216 bytes
+MODIFIED: 2025-12-26 03:54:52
+================================================================================
+/**
+ * Properties 4 Creations - Main JavaScript
+ * Consolidated functionality for the static website
+ */
+
+// Wait for DOM to be fully loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+function init() {
+  // Initialize all components
+  initMobileMenu();
+  initThemeToggle();
+  initAuthLinks();
+  initMap();
+  initAccessibility();
+  initLazyLoading();
+  initFormEnhancements();
+  initPropertyFilters();
+  initFAQAccordion();
+  initComparisonSlider();
+  initTestimonialCarousel();
+  initScrollToTop();
+  initVideoFallback();
+}
+
+/**
+ * Mobile Menu Toggle
+ */
+function initMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!menuToggle || !navMenu) return;
+  
+  menuToggle.addEventListener('click', function() {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      this.setAttribute('aria-expanded', 'false');
+      navMenu.classList.remove('active');
+    } else {
+      this.setAttribute('aria-expanded', 'true');
+      navMenu.classList.add('active');
+    }
+  });
+}
+
+/**
+ * Theme Toggle
+ */
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const htmlElement = document.documentElement;
+  
+  if (!themeToggle) return;
+  
+  // Check for saved theme preference or use system preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    htmlElement.setAttribute('data-theme', 'dark');
+    themeToggle.setAttribute('aria-pressed', 'true');
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    const isPressed = this.getAttribute('aria-pressed') === 'true';
+    
+    if (isPressed) {
+      htmlElement.setAttribute('data-theme', 'light');
+      this.setAttribute('aria-pressed', 'false');
+      localStorage.setItem('theme', 'light');
+    } else {
+      htmlElement.setAttribute('data-theme', 'dark');
+      this.setAttribute('aria-pressed', 'true');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+}
+
+/**
+ * Auth Links
+ */
+function initAuthLinks() {
+  const authLinksContainer = document.getElementById('auth-links');
+  
+  if (!authLinksContainer) return;
+  
+  const isAuthenticated = localStorage.getItem('authToken') || false;
+  
+  if (isAuthenticated) {
+    authLinksContainer.innerHTML = `
+      <a href="/profile/" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+      <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+    `;
+    
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('authToken');
+        window.location.href = '/login/';
+      });
+    }
+  } else {
+    authLinksContainer.innerHTML = `
+      <a href="/login/" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+      <a href="/register/" class="btn btn-primary cta-link" role="menuitem">Register</a>
+    `;
+  }
+}
+
+/**
+ * Map Initialization
+ */
+function initMap() {
+  const mapElement = document.getElementById('map');
+  
+  if (!mapElement) return;
+  
+  try {
+    const map = L.map('map').setView([32.35, -95.3], 10);
+    
+    // Fix for default icon path
+    L.Icon.Default.prototype.options.iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
+    L.Icon.Default.prototype.options.iconRetinaUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png';
+    L.Icon.Default.prototype.options.shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19,
+    }).addTo(map);
+    
+    // Add markers for key locations
+    const locations = [
+      { coords: [32.351, -95.301], title: 'Tyler Properties', popup: '<b>Tyler, TX</b><br>Multiple Properties Available' },
+      { coords: [32.5, -94.74], title: 'Longview Properties', popup: '<b>Longview, TX</b><br>Multiple Properties Available' },
+      { coords: [32.757, -94.344], title: 'Jefferson Properties', popup: '<b>Jefferson, TX</b><br>Waterfront Properties' },
+      { coords: [32.442, -96.225], title: 'Kemp Properties', popup: '<b>Kemp, TX</b><br>Townhome Communities' }
+    ];
+    
+    locations.forEach(location => {
+      L.marker(location.coords, { title: location.title })
+        .addTo(map)
+        .bindPopup(location.popup);
+    });
+    
+  } catch (error) {
+    console.error('Map initialization failed:', error);
+  }
+}
+
+/**
+ * Accessibility Enhancements
+ */
+function initAccessibility() {
+  // Skip link focus management
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) {
+    skipLink.addEventListener('focus', () => {
+      document.body.classList.add('skip-link-focused');
+    });
+    
+    skipLink.addEventListener('blur', () => {
+      document.body.classList.remove('skip-link-focused');
+    });
+  }
+  
+  // Focus management for modal dialogs
+  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  
+  // Keyboard navigation enhancements
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      // Add visual focus indicators
+      document.body.classList.add('keyboard-nav');
+    }
+  });
+  
+  // Mouse click removes keyboard focus indicators
+  document.addEventListener('mousedown', () => {
+    document.body.classList.remove('keyboard-nav');
+  });
+}
+
+/**
+ * Lazy Loading for Images
+ */
+function initLazyLoading() {
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading is supported
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('lazy-loaded');
+      });
+    });
+  } else {
+    // Fallback for browsers without native lazy loading
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          img.classList.add('lazy-loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+    
+    lazyImages.forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
+/**
+ * Form Enhancements
+ */
+function initFormEnhancements() {
+  const forms = document.querySelectorAll('form');
+  
+  forms.forEach(form => {
+    // Add required field indicators
+    const requiredFields = form.querySelectorAll('[required]');
+    requiredFields.forEach(field => {
+      const label = document.querySelector(`label[for="${field.id}"]`) || 
+                   field.closest('.form-group')?.querySelector('label');
+      if (label && !label.querySelector('.required-indicator')) {
+        const indicator = document.createElement('span');
+        indicator.className = 'required-indicator';
+        indicator.textContent = ' *';
+        indicator.setAttribute('aria-hidden', 'true');
+        label.appendChild(indicator);
+      }
+    });
+    
+    // Add client-side validation
+    form.addEventListener('submit', (e) => {
+      let isValid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+          const errorId = `${field.id}-error`;
+          let errorElement = document.getElementById(errorId);
+          
+          if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.id = errorId;
+            errorElement.className = 'error-message';
+            errorElement.setAttribute('role', 'alert');
+            field.parentNode.insertBefore(errorElement, field.nextSibling);
+          }
+          
+          errorElement.textContent = 'This field is required';
+        } else {
+          field.classList.remove('error');
+          const errorElement = document.getElementById(`${field.id}-error`);
+          if (errorElement) errorElement.remove();
+        }
+      });
+      
+      if (!isValid) {
+        e.preventDefault();
+        // Focus first error field
+        const firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+      }
+    });
+  });
+}
+
+/**
+ * Property Filter Functionality
+ */
+function initPropertyFilters() {
+  const filterBtn = document.getElementById('filter-btn');
+  
+  if (!filterBtn) return;
+  
+  filterBtn.addEventListener('click', () => {
+    const bedroomFilter = document.getElementById('bedroom-filter')?.value || '';
+    const locationFilter = document.getElementById('location-filter')?.value || '';
+    const searchFilter = document.getElementById('search-filter')?.value.toLowerCase() || '';
+    
+    const propertyCards = document.querySelectorAll('.property-card');
+    
+    propertyCards.forEach(card => {
+      const bedrooms = card.dataset.bedrooms || '';
+      const location = card.dataset.location || '';
+      const title = card.querySelector('.property-title')?.textContent.toLowerCase() || '';
+      
+      let matches = true;
+      
+      if (bedroomFilter && bedrooms !== bedroomFilter) matches = false;
+      if (locationFilter && location !== locationFilter) matches = false;
+      if (searchFilter && !title.includes(searchFilter)) matches = false;
+      
+      if (matches) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+}
+
+/**
+ * FAQ Accordion
+ */
+function initFAQAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    if (question) {
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+      
+      // Keyboard navigation
+      question.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          question.click();
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Comparison Slider
+ */
+function initComparisonSlider() {
+  const slider = document.querySelector('.slider-container');
+  
+  if (!slider) return;
+  
+  const handle = slider.querySelector('.slider-handle');
+  const before = slider.querySelector('.slider-before');
+  const after = slider.querySelector('.slider-after');
+  
+  if (!handle || !before || !after) return;
+  
+  let isDragging = false;
+  
+  handle.addEventListener('mousedown', startDrag);
+  handle.addEventListener('touchstart', startDrag);
+  
+  function startDrag(e) {
+    e.preventDefault();
+    isDragging = true;
+    
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', stopDrag);
+    document.addEventListener('touchend', stopDrag);
+  }
+  
+  function drag(e) {
+    if (!isDragging) return;
+    
+    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    const rect = slider.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    handle.style.left = percentage + '%';
+    after.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+  }
+  
+  function stopDrag() {
+    isDragging = false;
+    
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('touchmove', drag);
+    document.removeEventListener('mouseup', stopDrag);
+    document.removeEventListener('touchend', stopDrag);
+  }
+}
+
+/**
+ * Testimonial Carousel
+ */
+function initTestimonialCarousel() {
+  const carousel = document.querySelector('.testimonials-carousel');
+  
+  if (!carousel) return;
+  
+  const wrapper = carousel.querySelector('.testimonials-wrapper');
+  const dotsContainer = carousel.querySelector('.carousel-dots');
+  const slides = carousel.querySelectorAll('.testimonial-slide');
+  
+  if (!wrapper || !dotsContainer || slides.length === 0) return;
+  
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  
+  // Create dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (index === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+  
+  const dots = dotsContainer.querySelectorAll('.dot');
+  
+  function goToSlide(index) {
+    currentIndex = index;
+    
+    // Update slides
+    wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+  
+  // Auto-advance
+  setInterval(() => {
+    const nextIndex = (currentIndex + 1) % totalSlides;
+    goToSlide(nextIndex);
+  }, 5000);
+}
+
+/**
+ * Scroll to Top Button
+ */
+function initScrollToTop() {
+  const scrollToTopBtn = document.createElement('button');
+  scrollToTopBtn.className = 'scroll-to-top';
+  scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
+  scrollToTopBtn.innerHTML = '<i data-lucide="chevron-up"></i>';
+  
+  document.body.appendChild(scrollToTopBtn);
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  });
+  
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/**
+ * Video Fallback Handling
+ */
+function initVideoFallback() {
+  const videos = document.querySelectorAll('video');
+  
+  videos.forEach(video => {
+    const fallback = video.nextElementSibling;
+    
+    if (fallback && fallback.classList.contains('video-fallback')) {
+      video.addEventListener('loadeddata', () => {
+        fallback.style.display = 'none';
+      });
+      
+      video.addEventListener('error', () => {
+        fallback.style.display = 'block';
+      });
+      
+      // Handle video visibility for performance
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            video.play().catch(e => {
+              console.warn('Video autoplay failed:', e);
+              fallback.style.display = 'block';
+            });
+          } else {
+            video.pause();
+          }
+        });
+      });
+      
+      observer.observe(video);
+    }
+  });
+}
+
+// Export functions for testing
+export {
+  init,
+  initMobileMenu,
+  initThemeToggle,
+  initAuthLinks,
+  initMap,
+  initAccessibility,
+  initLazyLoading,
+  initFormEnhancements,
+  initPropertyFilters,
+  initFAQAccordion,
+  initComparisonSlider,
+  initTestimonialCarousel,
+  initScrollToTop,
+  initVideoFallback
+};
+
+--------------------------------------------------------------------------------
+FILE: templates\base.html
+SIZE: 12519 bytes
+MODIFIED: 2025-12-26 03:50:09
+================================================================================
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}</title>
+  
+  <!-- Favicon -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/images/logo/brand-logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="/images/logo/brand-logo.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="msapplication-TileColor" content="#0B1120" />
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="{% block description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% block og_title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta property="og:url" content="{% block og_url %}/{% endblock %}" />
+  <meta property="og:image" content="/images/logo/brand-logo.svg" />
+  <meta property="og:site_name" content="Properties4Creation" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% block twitter_title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}" />
+  <meta name="twitter:description" content="{% block twitter_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta name="twitter:image" content="/images/logo/brand-logo.svg" />
+  <meta name="twitter:site" content="@Properties4Creation" />
+  <meta name="twitter:creator" content="@Properties4Creation" />
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Properties4Creation",
+      "url": "",
+      "logo": "/images/logo/brand-logo.svg",
+      "description": "Veteran & family housing website in East Texas",
+      "sameAs": [
+        "https://www.facebook.com/Properties4Creation",
+        "https://twitter.com/Properties4Creation",
+        "https://www.instagram.com/Properties4Creation"
+      ]
+    }
+  </script>
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/css/main.css" as="style" />
+  
+  <!-- Load main stylesheet globally for all pages -->
+  <link rel="stylesheet" href="/css/main.css" />
+  
+  <!-- DNS Prefetch for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//formspree.io" />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="//unpkg.com" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://formspree.io" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for maps -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" integrity="sha384-b8ANgTJvdlAnWM5YGMpKn7Kodm+1k7NYNG9zdjTCcZcKatzYHwZ0RLdWarbJJVzU" crossorigin="anonymous">
+  
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+      
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link {% if request.path.startswith('/properties') %}active{% endif %}" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link {% if request.path == '/about/' %}active{% endif %}" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link {% if request.path == '/impact/' %}active{% endif %}" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link {% if request.path == '/resources/' %}active{% endif %}" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link {% if request.path == '/contact/' %}active{% endif %}" role="menuitem">Contact</a>
+          </li>
+        </ul>
+        
+        <div id="auth-links" class="nav-auth-links">
+          <!-- Auth links will be dynamically loaded here -->
+        </div>
+        
+        <div class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Auth Script -->
+  <script type="module">
+    // Simple auth state management for the template
+    document.addEventListener('DOMContentLoaded', () => {
+      const authLinksContainer = document.getElementById('auth-links');
+      const isAuthenticated = localStorage.getItem('authToken') || false;
+      
+      if (authLinksContainer) {
+        if (isAuthenticated) {
+          authLinksContainer.innerHTML = `
+            <a href="/profile/" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+            <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+          `;
+          document.getElementById('logout-btn')?.addEventListener('click', () => {
+            localStorage.removeItem('authToken');
+            window.location.href = '/login/';
+          });
+        } else {
+          authLinksContainer.innerHTML = `
+            <a href="/login/" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+            <a href="/register/" class="btn btn-primary cta-link" role="menuitem">Register</a>
+          `;
+        }
+      }
+    });
+  </script>
+  
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    {% block breadcrumb %}{% endblock %}
+    
+    {% block content %}{% endblock %}
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p><strong>24/7 Support:</strong> Veterans Crisis <a href="tel:988">988</a> | Housing <a href="tel:1-800-827-1000">1-800-827-1000</a></p>
+      </div>
+      
+      <!-- Footer Content -->
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">🎖️ Veteran-Owned & Operated</div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📞 <a href="tel:903-555-1234">903-555-1234</a></p>
+          <p>✉️ <a href="mailto:info@properties4creation.com">info@properties4creation.com</a></p>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Properties 4 Creations. <a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js" crossorigin="anonymous"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  
+  <!-- Leaflet JS for maps -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  
+  <!-- Main JS -->
+  <script src="/js/main.js" type="module"></script>
+  
+  <!-- Theme Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      
+      // Check for saved theme preference or use system preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        themeToggle.setAttribute('aria-pressed', 'true');
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        const isPressed = this.getAttribute('aria-pressed') === 'true';
+        
+        if (isPressed) {
+          htmlElement.setAttribute('data-theme', 'light');
+          this.setAttribute('aria-pressed', 'false');
+          localStorage.setItem('theme', 'light');
+        } else {
+          htmlElement.setAttribute('data-theme', 'dark');
+          this.setAttribute('aria-pressed', 'true');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  </script>
+  
+  <!-- Mobile Menu Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          
+          if (isExpanded) {
+            this.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+          } else {
+            this.setAttribute('aria-expanded', 'true');
+            navMenu.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+  
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
+
+--------------------------------------------------------------------------------
+FILE: templates\index.html
+SIZE: 5962 bytes
+MODIFIED: 2025-12-26 03:51:48
+================================================================================
+{% extends "base.html" %}
+
+{% block title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block og_title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block og_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block og_url %}/{% endblock %}
+
+{% block twitter_title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block twitter_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block content %}
+  <!-- HERO SECTION -->
+  <section class="hero" aria-label="Welcome to Properties 4 Creations">
+    <div class="hero-content">
+      <h2>Building Homes, Rebuilding Lives</h2>
+      <p class="hero-subtitle">
+        Premium, renovated housing for veterans and families in East Texas
+      </p>
+      <p class="hero-tagline">
+        Veteran-Owned & Operated | 100% Section 8 & HUD-VASH Acceptance
+      </p>
+      <div class="hero-ctas">
+        <a href="/properties/" class="btn btn-primary">Browse Available Homes</a>
+        <a href="/apply/" class="btn btn-secondary">Start Your Application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT SNAPSHOT -->
+  <section class="impact-snapshot" aria-label="Our impact in numbers">
+    <div class="container">
+      <h2>Real Results for Real Families</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">55+</span>
+          <span class="stat-label">Safe Homes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Properties Renovated</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Veterans Housed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Voucher Acceptance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="map-section" aria-label="Our service area in East Texas">
+    <div class="container">
+      <h2>Service Area</h2>
+      <p>
+        Serving communities across East Texas, from Tyler to Longview and beyond.
+      </p>
+      <div id="map" class="leaflet-map"></div>
+    </div>
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section class="trust-section" aria-label="Why choose Properties 4 Creations">
+    <div class="container">
+      <h2>Why Choose Properties 4 Creations?</h2>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="home"></i></div>
+          <h3>Premium Renovations</h3>
+          <p>
+            Every home meets our rigorous renovation standards: new HVAC, roofing, electrical, and plumbing systems.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="shield"></i></div>
+          <h3>Veteran-Led</h3>
+          <p>
+            Founded and operated by veterans, for veterans. We understand your needs and are committed to your success.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="check-circle"></i></div>
+          <h3>100% Voucher Acceptance</h3>
+          <p>
+            We accept Section 8, HUD-VASH, and other housing vouchers. No discrimination.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="eye"></i></div>
+          <h3>Transparent Process</h3>
+          <p>
+            Clear, honest communication every step of the way. See our full renovation standards and quality commitments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Find Your Home?</h2>
+      <p>
+        Browse our available properties or start your application today.
+      </p>
+      <a href="/apply/" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Map Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // MAP INITIALIZATION
+      if (document.getElementById('map')) {
+        const map = L.map('map').setView([32.35, -95.3], 10);
+        L.Icon.Default.prototype.options.iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
+        L.Icon.Default.prototype.options.iconRetinaUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png';
+        L.Icon.Default.prototype.options.shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19,
+        }).addTo(map);
+
+        L.marker([32.351, -95.301], {
+          title: 'Tyler Properties',
+        })
+          .addTo(map)
+          .bindPopup('<b>Tyler, TX</b><br>Multiple Properties Available');
+
+        L.marker([32.5, -94.74], {
+          title: 'Longview Properties',
+        })
+          .addTo(map)
+          .bindPopup('<b>Longview, TX</b><br>Multiple Properties Available');
+      }
+    });
+  </script>
+{% endblock %}
+
+{% block extra_js %}
+  <!-- Additional page-specific JavaScript can go here -->
+{% endblock %}
 

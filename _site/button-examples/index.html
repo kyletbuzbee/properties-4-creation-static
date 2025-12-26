@@ -1,0 +1,93 @@
+<!-- ==
+     BUTTON USAGE EXAMPLES
+     == -->
+
+<!-- Basic Button Examples -->
+<button class='btn btn-primary'>Primary Button</button>
+<button class='btn btn-secondary'>Secondary Button</button>
+<button class='btn btn-outline'>Outline Button</button>
+<button class='btn btn-ghost'>Ghost Button</button>
+
+<!-- State Buttons -->
+<button class='btn btn-success'>Success</button>
+<button class='btn btn-danger'>Delete</button>
+<button class='btn btn-warning'>Warning</button>
+
+<!-- Size Variants -->
+<button class='btn btn-primary btn-xs'>Extra Small</button>
+<button class='btn btn-primary btn-sm'>Small</button>
+<button class='btn btn-primary'>Default</button>
+<button class='btn btn-primary btn-lg'>Large</button>
+<button class='btn btn-primary btn-xl'>Extra Large</button>
+
+<!-- Icon Buttons -->
+<button class='btn btn-primary'>
+  <i data-lucide='home' class='icon icon-left'></i>
+  Home
+</button>
+
+<button class='btn btn-primary'>
+  Next
+  <i data-lucide='arrow-right' class='icon icon-right'></i>
+</button>
+
+<button class='btn btn-primary btn-icon' aria-label='Search'>
+  <i data-lucide='search'></i>
+</button>
+
+<!-- Loading State (JavaScript controlled) -->
+<button class='btn btn-primary' id='submit-btn'>Submit</button>
+<script>
+  // Set loading state
+  ButtonUtils.setLoading('#submit-btn', 'Processing...');
+
+  // Remove loading state after operation
+  setTimeout(() => {
+    ButtonUtils.removeLoading('#submit-btn', 'Success!');
+  }, 2000);
+</script>
+
+<!-- Disabled State -->
+<button class='btn btn-primary' disabled>Disabled Button</button>
+
+<!-- Button Group -->
+<div class='btn-group' role='group' aria-label='View options'>
+  <button class='btn btn-outline active' aria-pressed='true'>List</button>
+  <button class='btn btn-outline' aria-pressed='false'>Grid</button>
+  <button class='btn btn-outline' aria-pressed='false'>Map</button>
+</div>
+
+<!-- Full Width Button -->
+<button class='btn btn-primary btn-block'>Full Width Button</button>
+
+<!-- Copy to Clipboard Button -->
+<button class='btn btn-secondary' data-copy='Text to copy'>
+  <i data-lucide='copy' class='icon icon-left'></i>
+  Copy Code
+</button>
+
+<!-- Confirmation Button (Destructive) -->
+<button class='btn btn-danger' id='delete-btn'>Delete Property</button>
+<script>
+  ButtonUtils.addConfirmation('#delete-btn', 'Are you sure?', function () {
+    // Delete operation here
+    console.log('Property deleted');
+  });
+</script>
+
+<!-- Form Submit Button -->
+<form action='/apply' method='POST'>
+  <input type='email' name='email' required />
+  <button type='submit' class='btn btn-primary btn-lg'>
+    Submit Application
+  </button>
+</form>
+
+<!-- Link styled as Button -->
+<a href='/properties' class='btn btn-primary'>Browse Properties</a>
+
+<!-- Context-aware Buttons -->
+<div style='background: #0b1120; padding: 2rem'>
+  <button class='btn btn-secondary on-dark'>On Dark Background</button>
+  <button class='btn btn-ghost on-dark'>Ghost on Dark</button>
+</div>

@@ -1,0 +1,158 @@
+/* Typography Base Styles */
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--color-primary-navy);
+  background-color: var(--color-primary-beige);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-4);
+  color: var(--color-primary-navy);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Text elements */
+p {
+  margin-bottom: var(--spacing-4);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+small, .text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Links */
+a {
+  color: var(--color-primary-wood);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-walnut);
+  text-decoration: underline;
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Font weights */
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Color utilities */
+.text-navy {
+  color: var(--color-primary-navy);
+}
+
+.text-gold {
+  color: var(--color-primary-gold);
+}
+
+.text-white {
+  color: var(--color-neutral-white);
+}
+
+.text-dark {
+  color: var(--color-neutral-gray-900);
+}
+
+.text-light {
+  color: var(--color-neutral-gray-300);
+}
+
+.text-error {
+  color: var(--color-semantic-error);
+}
+
+.text-success {
+  color: var(--color-semantic-success);
+}
+
+.text-warning {
+  color: var(--color-semantic-warning);
+}
+
+.text-info {
+  color: var(--color-semantic-info);
+}

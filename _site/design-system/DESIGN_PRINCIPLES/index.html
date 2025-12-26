@@ -1,0 +1,611 @@
+<h1>Design Principles - Properties 4 Creations</h1>
+<h2>Overview</h2>
+<p>This document outlines the design principles, visual language, and guidelines for the Properties 4 Creations housing platform serving <strong>families and veterans</strong> in East Texas. These principles ensure consistency, accessibility, and a professional user experience across all touchpoints.</p>
+<hr>
+<h2>Core Values</h2>
+<h3>1. Family &amp; Veteran-First Design</h3>
+<ul>
+<li>Design with dignity, respect, and accessibility as primary concerns for all families and veterans</li>
+<li>Use clear, straightforward language without jargon</li>
+<li>Provide multiple pathways to complete tasks</li>
+<li>Ensure all critical information is easily discoverable</li>
+<li>Consider diverse family structures and needs</li>
+<li>Honor veteran service while welcoming all eligible families</li>
+</ul>
+<h3>2. Transparency &amp; Trust</h3>
+<ul>
+<li>Clear information hierarchy with honest communication</li>
+<li>No hidden fees, terms, or conditions</li>
+<li>Progress indicators for multi-step processes</li>
+<li>Consistent, predictable interface patterns</li>
+</ul>
+<h3>3. Accessibility (WCAG 2.2 AA)</h3>
+<ul>
+<li>Minimum 4.5:1 contrast ratio for all text</li>
+<li>44x44px minimum touch targets</li>
+<li>Full keyboard navigation support</li>
+<li>Screen reader compatibility</li>
+<li>Respect user preferences (reduced motion, color scheme)</li>
+</ul>
+<h3>4. Performance</h3>
+<ul>
+<li>Core Web Vitals compliance (LCP &lt;2.5s, FID &lt;100ms, CLS &lt;0.1)</li>
+<li>Progressive enhancement approach</li>
+<li>Offline-first PWA capabilities</li>
+<li>Optimized images and assets</li>
+</ul>
+<hr>
+<h2>Visual Language</h2>
+<h3>Color Palette</h3>
+<h4>Primary Colors</h4>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navy</td>
+<td><code>#0B1120</code></td>
+<td>Brand, headers, CTAs, primary text</td>
+</tr>
+<tr>
+<td>Gold</td>
+<td><code>#C28E5A</code></td>
+<td>Accents, highlights, interactive elements</td>
+</tr>
+<tr>
+<td>Beige</td>
+<td><code>#F5F5F0</code></td>
+<td>Backgrounds, cards</td>
+</tr>
+</tbody>
+</table>
+<h4>Semantic Colors</h4>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Hex</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error</td>
+<td><code>#D32F2F</code></td>
+<td>Error states, destructive actions</td>
+</tr>
+<tr>
+<td>Success</td>
+<td><code>#388E3C</code></td>
+<td>Success states, confirmations</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td><code>#F57C00</code></td>
+<td>Warnings, cautions</td>
+</tr>
+<tr>
+<td>Info</td>
+<td><code>#1976D2</code></td>
+<td>Informational messages</td>
+</tr>
+</tbody>
+</table>
+<h4>Neutral Colors</h4>
+<ul>
+<li>White (<code>#FFFFFF</code>) - Card backgrounds, text on dark</li>
+<li>Gray scale (<code>#F9FAFB</code> to <code>#111827</code>) - Borders, secondary text, dividers</li>
+<li>Black (<code>#000000</code>) - High contrast text when needed</li>
+</ul>
+<h3>Typography</h3>
+<h4>Font Families</h4>
+<ul>
+<li><strong>Headings</strong>: Merriweather (serif) - Conveys trust and professionalism</li>
+<li><strong>Body</strong>: System fonts (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto) - Optimal readability</li>
+<li><strong>Code</strong>: Monaco, Courier New (monospace) - Technical content</li>
+</ul>
+<h4>Type Scale</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Size</th>
+<th>Line Height</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xs</td>
+<td>0.75rem (12px)</td>
+<td>1rem</td>
+<td>Captions, labels</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>0.875rem (14px)</td>
+<td>1.25rem</td>
+<td>Secondary text</td>
+</tr>
+<tr>
+<td>base</td>
+<td>1rem (16px)</td>
+<td>1.5rem</td>
+<td>Body text</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>1.125rem (18px)</td>
+<td>1.75rem</td>
+<td>Lead paragraphs</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>1.25rem (20px)</td>
+<td>1.75rem</td>
+<td>H4 headings</td>
+</tr>
+<tr>
+<td>2xl</td>
+<td>1.5rem (24px)</td>
+<td>2rem</td>
+<td>H3 headings</td>
+</tr>
+<tr>
+<td>3xl</td>
+<td>1.875rem (30px)</td>
+<td>2.25rem</td>
+<td>H2 headings</td>
+</tr>
+<tr>
+<td>4xl</td>
+<td>2.25rem (36px)</td>
+<td>2.5rem</td>
+<td>H1 headings</td>
+</tr>
+<tr>
+<td>5xl</td>
+<td>3rem (48px)</td>
+<td>1</td>
+<td>Hero titles</td>
+</tr>
+</tbody>
+</table>
+<h3>Spacing System</h3>
+<p>Based on an 8px grid system for consistent rhythm:</p>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spacing-1</td>
+<td>0.25rem (4px)</td>
+<td>Tight spacing, icons</td>
+</tr>
+<tr>
+<td>spacing-2</td>
+<td>0.5rem (8px)</td>
+<td>Inline elements</td>
+</tr>
+<tr>
+<td>spacing-3</td>
+<td>0.75rem (12px)</td>
+<td>Small gaps</td>
+</tr>
+<tr>
+<td>spacing-4</td>
+<td>1rem (16px)</td>
+<td>Standard spacing</td>
+</tr>
+<tr>
+<td>spacing-6</td>
+<td>1.5rem (24px)</td>
+<td>Section padding</td>
+</tr>
+<tr>
+<td>spacing-8</td>
+<td>2rem (32px)</td>
+<td>Large gaps</td>
+</tr>
+<tr>
+<td>spacing-12</td>
+<td>3rem (48px)</td>
+<td>Section margins</td>
+</tr>
+<tr>
+<td>spacing-16</td>
+<td>4rem (64px)</td>
+<td>Page sections</td>
+</tr>
+</tbody>
+</table>
+<h3>Shadows</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xs</td>
+<td>Subtle depth for inputs</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>Cards at rest</td>
+</tr>
+<tr>
+<td>md</td>
+<td>Cards on hover</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>Modals, dropdowns</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>Floating elements</td>
+</tr>
+</tbody>
+</table>
+<h3>Border Radius</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sm</td>
+<td>0.125rem</td>
+<td>Subtle rounding</td>
+</tr>
+<tr>
+<td>base</td>
+<td>0.25rem</td>
+<td>Inputs, small elements</td>
+</tr>
+<tr>
+<td>md</td>
+<td>0.375rem</td>
+<td>Buttons</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>0.5rem</td>
+<td>Cards</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>0.75rem</td>
+<td>Large cards</td>
+</tr>
+<tr>
+<td>full</td>
+<td>9999px</td>
+<td>Pills, avatars</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Component Guidelines</h2>
+<h3>Buttons</h3>
+<h4>Variants</h4>
+<ol>
+<li><strong>Primary</strong> - Main CTAs (gold background, navy text)</li>
+<li><strong>Secondary</strong> - Secondary actions (navy outline)</li>
+<li><strong>Tertiary</strong> - Low-emphasis actions (text only)</li>
+<li><strong>Danger</strong> - Destructive actions (red)</li>
+</ol>
+<h4>States</h4>
+<ul>
+<li>Default, Hover, Active, Focus, Disabled, Loading</li>
+</ul>
+<h4>Sizing</h4>
+<ul>
+<li>Small: 36px height, 14px text</li>
+<li>Medium: 44px height, 16px text (default)</li>
+<li>Large: 52px height, 18px text</li>
+</ul>
+<h4>Rules</h4>
+<ul>
+<li>Always include visible focus indicator</li>
+<li>Minimum 44x44px touch target</li>
+<li>Use loading state for async actions</li>
+<li>Include icon + text for important actions</li>
+</ul>
+<h3>Cards</h3>
+<h4>Property Cards</h4>
+<ul>
+<li>Image with lazy loading</li>
+<li>Title (H3)</li>
+<li>Address</li>
+<li>Features (beds, baths, sqft)</li>
+<li>Tags (Section 8, HUD-VASH, Pet Friendly)</li>
+<li>CTA button</li>
+</ul>
+<h4>Hover Effects</h4>
+<ul>
+<li>Subtle lift (translateY -4px)</li>
+<li>Shadow increase</li>
+<li>Image zoom (scale 1.05)</li>
+</ul>
+<h3>Forms</h3>
+<h4>Input Fields</h4>
+<ul>
+<li>Clear labels above inputs</li>
+<li>Placeholder text for examples only</li>
+<li>Error messages below with icon</li>
+<li>Success state on valid input</li>
+<li>16px minimum font size (prevents iOS zoom)</li>
+</ul>
+<h4>Validation</h4>
+<ul>
+<li>Real-time validation on blur</li>
+<li>Clear error messages with recovery path</li>
+<li>Use aria-live for screen reader announcements</li>
+</ul>
+<h3>Navigation</h3>
+<h4>Header</h4>
+<ul>
+<li>Sticky on scroll</li>
+<li>Glass morphism effect</li>
+<li>Mobile hamburger menu at 768px</li>
+<li>Skip navigation link</li>
+</ul>
+<h4>Mobile Menu</h4>
+<ul>
+<li>Full-screen overlay</li>
+<li>Focus trap when open</li>
+<li>Close on Escape key</li>
+<li>Animate from left</li>
+</ul>
+<hr>
+<h2>Motion Guidelines</h2>
+<h3>Duration</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instant</td>
+<td>0ms</td>
+<td>Immediate feedback</td>
+</tr>
+<tr>
+<td>fast</td>
+<td>150ms</td>
+<td>Micro-interactions</td>
+</tr>
+<tr>
+<td>base</td>
+<td>250ms</td>
+<td>Standard transitions</td>
+</tr>
+<tr>
+<td>slow</td>
+<td>350ms</td>
+<td>Complex animations</td>
+</tr>
+<tr>
+<td>slower</td>
+<td>500ms</td>
+<td>Page transitions</td>
+</tr>
+</tbody>
+</table>
+<h3>Easing</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>easeOut</td>
+<td>cubic-bezier(0, 0, 0.2, 1)</td>
+<td>Enter animations</td>
+</tr>
+<tr>
+<td>easeIn</td>
+<td>cubic-bezier(0.4, 0, 1, 1)</td>
+<td>Exit animations</td>
+</tr>
+<tr>
+<td>easeInOut</td>
+<td>cubic-bezier(0.4, 0, 0.2, 1)</td>
+<td>Move animations</td>
+</tr>
+<tr>
+<td>bounce</td>
+<td>cubic-bezier(0.68, -0.55, 0.265, 1.55)</td>
+<td>Playful feedback</td>
+</tr>
+</tbody>
+</table>
+<h3>Reduced Motion</h3>
+<p>Always respect <code>prefers-reduced-motion</code>:</p>
+<pre><code class="language-css">@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</code></pre>
+<hr>
+<h2>Responsive Design</h2>
+<h3>Breakpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xs</td>
+<td>320px</td>
+<td>Small phones</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>640px</td>
+<td>Large phones</td>
+</tr>
+<tr>
+<td>md</td>
+<td>768px</td>
+<td>Tablets</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>1024px</td>
+<td>Laptops</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>1280px</td>
+<td>Desktops</td>
+</tr>
+<tr>
+<td>2xl</td>
+<td>1536px</td>
+<td>Large screens</td>
+</tr>
+</tbody>
+</table>
+<h3>Mobile-First Approach</h3>
+<p>Write base styles for mobile, then add complexity:</p>
+<pre><code class="language-css">/* Mobile (default) */
+.grid {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</code></pre>
+<hr>
+<h2>Accessibility Checklist</h2>
+<h3>Color &amp; Contrast</h3>
+<ul>
+<li>[ ] Text contrast ratio ≥ 4.5:1 (AA)</li>
+<li>[ ] Large text contrast ratio ≥ 3:1</li>
+<li>[ ] Non-text contrast ratio ≥ 3:1</li>
+<li>[ ] Don't rely on color alone for meaning</li>
+</ul>
+<h3>Keyboard Navigation</h3>
+<ul>
+<li>[ ] All interactive elements focusable</li>
+<li>[ ] Visible focus indicators</li>
+<li>[ ] Logical tab order</li>
+<li>[ ] Skip navigation link</li>
+<li>[ ] Escape closes modals/menus</li>
+</ul>
+<h3>Screen Readers</h3>
+<ul>
+<li>[ ] Semantic HTML structure</li>
+<li>[ ] Proper heading hierarchy (H1 → H2 → H3)</li>
+<li>[ ] Alt text for images</li>
+<li>[ ] ARIA labels for icons/buttons</li>
+<li>[ ] Live regions for dynamic content</li>
+</ul>
+<h3>Forms</h3>
+<ul>
+<li>[ ] Labels associated with inputs</li>
+<li>[ ] Error messages linked with aria-describedby</li>
+<li>[ ] Required fields marked with aria-required</li>
+<li>[ ] Form validation announced</li>
+</ul>
+<h3>Touch</h3>
+<ul>
+<li>[ ] 44x44px minimum touch targets</li>
+<li>[ ] 8px minimum spacing between targets</li>
+<li>[ ] No hover-only interactions</li>
+</ul>
+<hr>
+<h2>File Naming Conventions</h2>
+<h3>Images</h3>
+<pre><code>[type]-[location]-[description].[ext]
+</code></pre>
+<p>Examples:</p>
+<ul>
+<li><code>hero-home-banner.webp</code></li>
+<li><code>properties-tyler-ranch-home.webp</code></li>
+<li><code>icon-section-8.svg</code></li>
+</ul>
+<h3>CSS Classes (BEM)</h3>
+<pre><code>.block__element--modifier
+</code></pre>
+<p>Examples:</p>
+<ul>
+<li><code>.property-card</code></li>
+<li><code>.property-card__image</code></li>
+<li><code>.property-card--featured</code></li>
+</ul>
+<h3>JavaScript</h3>
+<pre><code>camelCase for variables/functions
+PascalCase for classes
+UPPER_SNAKE_CASE for constants
+</code></pre>
+<hr>
+<h2>Version History</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0.0</td>
+<td>2025-12-15</td>
+<td>Initial design system documentation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.w3.org/WAI/WCAG22/quickref/">WCAG 2.2 Guidelines</a></li>
+<li><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a></li>
+<li><a href="https://inclusive-components.design/">Inclusive Components</a></li>
+<li><a href="https://www.a11yproject.com/checklist/">A11y Project Checklist</a></li>
+</ul>

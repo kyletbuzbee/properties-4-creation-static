@@ -1,0 +1,436 @@
+/**
+ * Card Component - Properties 4 Creations
+ * Property cards, stat cards, and testimonial cards
+ */
+
+/* ========================================
+   Base Card
+   ======================================== */
+
+.card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--duration-base) var(--easing-ease-out);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   Property Card (BEM)
+   ======================================== */
+
+.property-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--duration-base) var(--easing-ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.property-card:focus-within {
+  outline: 3px solid var(--color-primary-gold);
+  outline-offset: 2px;
+}
+
+/* Property Card Image */
+.property-card__image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.property-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--easing-ease-out);
+}
+
+.property-card:hover .property-card__image {
+  transform: scale(1.05);
+}
+
+/* Property Card Badge */
+.property-card__badge {
+  position: absolute;
+  top: var(--spacing-3);
+  left: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--color-primary-gold);
+  color: var(--color-primary-navy);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  border-radius: var(--radius-full);
+}
+
+.property-card__badge--featured {
+  background: var(--color-primary-navy);
+  color: var(--color-neutral-white);
+}
+
+.property-card__badge--new {
+  background: var(--color-semantic-success);
+  color: var(--color-neutral-white);
+}
+
+/* Property Card Content */
+.property-card__content {
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.property-card__title {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-navy);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: 1.3;
+}
+
+.property-card__address {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-gray-600);
+  margin: 0 0 var(--spacing-3) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.property-card__address svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Property Card Features */
+.property-card__features {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-3) 0;
+  border-top: 1px solid var(--color-neutral-gray-200);
+  border-bottom: 1px solid var(--color-neutral-gray-200);
+  margin-bottom: var(--spacing-3);
+  list-style: none;
+}
+
+.property-card__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-gray-600);
+}
+
+.property-card__feature-value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-navy);
+}
+
+/* Property Card Tags */
+.property-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.property-card__tag {
+  padding: var(--spacing-1) var(--spacing-2);
+  background: var(--color-neutral-gray-100);
+  color: var(--color-neutral-gray-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+}
+
+.property-card__tag--section8 {
+  background: rgba(25, 118, 210, 0.1);
+  color: var(--color-semantic-info);
+}
+
+.property-card__tag--hudvash {
+  background: rgba(56, 142, 60, 0.1);
+  color: var(--color-semantic-success);
+}
+
+.property-card__tag--pet-friendly {
+  background: rgba(194, 142, 90, 0.1);
+  color: var(--color-primary-gold-dark);
+}
+
+/* Property Card Actions */
+.property-card__actions {
+  margin-top: auto;
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.property-card__actions .btn {
+  flex: 1;
+}
+
+/* ========================================
+   Property Card Modifiers
+   ======================================== */
+
+.property-card--featured {
+  border: 2px solid var(--color-primary-gold);
+}
+
+.property-card--unavailable {
+  opacity: 0.7;
+}
+
+.property-card--unavailable .property-card__image {
+  filter: grayscale(50%);
+}
+
+/* ========================================
+   Stat Card
+   ======================================== */
+
+.stat-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-base) var(--easing-ease-out);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card__icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--spacing-4);
+  color: var(--color-primary-gold);
+}
+
+.stat-card__value {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-navy);
+  line-height: 1;
+  margin-bottom: var(--spacing-2);
+}
+
+.stat-card__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-gray-600);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* ========================================
+   Testimonial Card
+   ======================================== */
+
+.testimonial-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: var(--spacing-4);
+  left: var(--spacing-4);
+  font-family: var(--font-family-serif);
+  font-size: 4rem;
+  color: var(--color-primary-gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.testimonial-card__content {
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--color-neutral-gray-700);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-8);
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.testimonial-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.testimonial-card__name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-navy);
+}
+
+.testimonial-card__role {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-gray-500);
+}
+
+/* ========================================
+   Trust Card
+   ======================================== */
+
+.trust-card {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-neutral-gray-200);
+}
+
+.trust-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-4);
+}
+
+.trust-card__title {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-navy);
+  margin-bottom: var(--spacing-2);
+}
+
+.trust-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-gray-600);
+  line-height: 1.6;
+}
+
+/* ========================================
+   Card Skeleton (Loading State)
+   ======================================== */
+
+.card-skeleton {
+  background: var(--color-neutral-white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.card-skeleton__image {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(
+    90deg,
+    var(--color-neutral-gray-200) 25%,
+    var(--color-neutral-gray-100) 50%,
+    var(--color-neutral-gray-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.card-skeleton__content {
+  padding: var(--spacing-4);
+}
+
+.card-skeleton__title {
+  height: 24px;
+  width: 70%;
+  background: var(--color-neutral-gray-200);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-3);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.card-skeleton__text {
+  height: 16px;
+  width: 100%;
+  background: var(--color-neutral-gray-200);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-2);
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+.card-skeleton__text:last-child {
+  width: 60%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+
+@media (max-width: 640px) {
+  .property-card__features {
+    gap: var(--spacing-2);
+  }
+
+  .property-card__feature {
+    font-size: var(--font-size-xs);
+  }
+
+  .stat-card__value {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .property-card,
+  .stat-card,
+  .property-card__image {
+    transition: none;
+  }
+
+  .property-card:hover,
+  .stat-card:hover {
+    transform: none;
+  }
+
+  .property-card:hover .property-card__image {
+    transform: none;
+  }
+
+  .card-skeleton__image,
+  .card-skeleton__title,
+  .card-skeleton__text {
+    animation: none;
+  }
+}

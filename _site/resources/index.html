@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>Housing Resources - Properties 4 Creations</title>
+<link rel='manifest' href='/manifest.json' />
+<link rel='apple-touch-icon' href='/images/logo/brand-logo.svg' />
+<link rel='icon' type='image/svg+xml' href='/images/logo/brand-logo.svg' />
+<meta name='msapplication-TileColor' content='#0B1120' />
+<meta name='description' content='Learn about housing programs and requirements to help you find your home. Information on HUD-VASH, Section 8, VA loans, and more.' />
+<link rel='canonical' href='/resources/' />
+
+<!-- Open Graph -->
+<meta property='og:type' content='website' />
+<meta property='og:title' content='Housing Resources - Properties 4 Creations' />
+<meta property='og:description' content='Learn about housing programs and requirements to help you find your home. Information on HUD-VASH, Section 8, VA loans, and more.' />
+<meta property='og:url' content='/resources/' />
+<meta property='og:image' content='/images/logo/brand-logo.svg' />
+<meta property='og:site_name' content='Properties4Creation' />
+<meta property='og:locale' content='en_US' />
+<meta property='og:updated_time' content='December 24, 2025' />
+
+<!-- Twitter Cards -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' content='Housing Resources - Properties 4 Creations' />
+<meta name='twitter:description' content='Learn about housing programs and requirements to help you find your home. Information on HUD-VASH, Section 8, VA loans, and more.' />
+<meta name='twitter:image' content='/images/logo/brand-logo.svg' />
+<meta name='twitter:site' content='@Properties4Creation' />
+<meta name='twitter:creator' content='@Properties4Creation' />
+
+<!-- Theme Colors for light/dark -->
+<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+<meta name='theme-color' content='#0B1120' media='(prefers-color-scheme: dark)' />
+
+<!-- Favicon fallbacks -->
+<link rel='icon' href='/favicon.ico' sizes='any' />
+
+<!-- Structured Data for SEO -->
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Properties4Creation",
+  "url": "",
+  "logo": "/images/logo/brand-logo.svg",
+  "description": "Veteran & family housing website in East Texas",
+  "sameAs": [
+    "https://www.facebook.com/Properties4Creation",
+    "https://twitter.com/Properties4Creation",
+    "https://www.instagram.com/Properties4Creation"
+  ]
+}
+</script>
+
+<!-- Preload Critical Assets -->
+<link rel='preload' href='/css/style.css' as='style' />
+
+<!-- Load main stylesheet globally for all pages -->
+<link rel='stylesheet' href='/css/style.css' />
+
+<!-- DNS Prefetch for Performance -->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//formspree.io' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+
+<!-- Preconnect for Performance -->
+<link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+<link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+<link rel='preconnect' href='https://formspree.io' crossorigin />
+<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
+<link rel='preconnect' href='https://unpkg.com' crossorigin />
+
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+  <main id="main-content">
+    <!-- Veteran & Family Resources Section -->
+<section class='veteran-resources' aria-label='Resources for veterans and families'>
+  <div class='container'>
+    <div class='resources-header'>
+      <h2>Support Resources for Veterans & Families</h2>
+      <p>
+        Comprehensive support services available throughout East Texas.
+        We're here to help connect you with the resources you need.
+      </p>
+    </div>
+
+    <div class='resources-grid'>
+      <!-- Veteran Services -->
+      <div class='resource-category'>
+        <div class='category-header'>
+          <div class='category-icon'>
+            <i data-lucide='shield' aria-hidden='true'></i>
+          </div>
+          <h3>Veteran Services</h3>
+        </div>
+        <div class='resource-list'>
+          
+          <div class='resource-item'>
+            <h4>VA Housing Assistance (HUD-VASH)</h4>
+            <p>Housing assistance program for homeless veterans</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.va.gov/homeless/hud-vash.asp' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:1-800-827-1000' class='btn btn-link'>
+                Call 1-800-827-1000
+              </a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>VA Benefits &amp; Services</h4>
+            <p>Comprehensive veteran benefits including healthcare, education, and housing</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.va.gov' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:1-800-827-1000' class='btn btn-link'>
+                Call 1-800-827-1000
+              </a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Veterans Crisis Line</h4>
+            <p>24/7 confidential support for veterans in crisis</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.veteranscrisisline.net' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:988' class='btn btn-link'>
+                Call 988
+              </a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Family Support -->
+      <div class='resource-category'>
+        <div class='category-header'>
+          <div class='category-icon'>
+            <i data-lucide='home' aria-hidden='true'></i>
+          </div>
+          <h3>Family Support</h3>
+        </div>
+        <div class='resource-list'>
+          
+          <div class='resource-item'>
+            <h4>Section 8 Housing Choice Vouchers</h4>
+            <p>HUD program providing rental assistance for low-income families</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.hud.gov/program_offices/public_indian_housing/programs/hcv' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:1-800-955-2232' class='btn btn-link'>
+                Call 1-800-955-2232
+              </a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Family Support Services</h4>
+            <p>Support services for military families and veterans&#39; families</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.militaryonesource.mil/family-support' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:1-800-342-9647' class='btn btn-link'>
+                Call 1-800-342-9647
+              </a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Child Care Resources</h4>
+            <p>Child care assistance and family support programs</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.childcare.gov' class='btn btn-link' target='_blank' rel='noopener'>
+                Learn More
+              </a>
+              
+              
+              <a href='tel:1-866-763-2272' class='btn btn-link'>
+                Call 1-866-763-2272
+              </a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Local Organizations -->
+      <div class='resource-category'>
+        <div class='category-header'>
+          <div class='category-icon'>
+            <i data-lucide='map-pin' aria-hidden='true'></i>
+          </div>
+          <h3>Local East Texas Support</h3>
+        </div>
+        <div class='resource-list'>
+          
+          <div class='resource-item'>
+            <h4>East Texas Veterans Center (Tyler)</h4>
+            <p>Local veteran support and community services</p>
+            <div class='resource-meta'>
+              <span class='location'>Tyler, TX</span>
+              
+              <a href='tel:903-534-1000' class='phone-link'>903-534-1000</a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Longview Veterans Affairs</h4>
+            <p>Regional VA services and veteran support</p>
+            <div class='resource-meta'>
+              <span class='location'>Longview, TX</span>
+              
+              <a href='tel:903-236-7000' class='phone-link'>903-236-7000</a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Marshall Veterans Services</h4>
+            <p>Community support for veterans and families</p>
+            <div class='resource-meta'>
+              <span class='location'>Marshall, TX</span>
+              
+              <a href='tel:903-935-4000' class='phone-link'>903-935-4000</a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Financial Counseling -->
+      <div class='resource-category'>
+        <div class='category-header'>
+          <div class='category-icon'>
+            <i data-lucide='dollar-sign' aria-hidden='true'></i>
+          </div>
+          <h3>Financial & Housing Counseling</h3>
+        </div>
+        <div class='resource-list'>
+          
+          <div class='resource-item'>
+            <h4>Veterans Financial Counseling</h4>
+            <p>Financial planning and counseling services for veterans</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.benefits.va.gov/homeloans/financial_counseling.asp' class='btn btn-link' target='_blank' rel='noopener'>
+                Get Help
+              </a>
+              
+            </div>
+          </div>
+          
+          <div class='resource-item'>
+            <h4>Housing Counseling Agencies</h4>
+            <p>HUD-approved housing counseling for homeownership and rental assistance</p>
+            <div class='resource-actions'>
+              
+              <a href='https://www.hud.gov/states/texas/housing_counseling' class='btn btn-link' target='_blank' rel='noopener'>
+                Get Help
+              </a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Emergency Contacts -->
+    <div class='emergency-section'>
+      <h3>Emergency Support</h3>
+      <p>In case of emergency, these resources are available 24/7:</p>
+      <div class='emergency-grid'>
+        
+        <div class='emergency-card'>
+          <h4>Veterans Crisis Line</h4>
+          <p>24/7 support for veterans in crisis</p>
+          <a href='tel:988' class='emergency-phone'>
+            988
+          </a>
+        </div>
+        
+        <div class='emergency-card'>
+          <h4>National Domestic Violence Hotline</h4>
+          <p>Support for victims of domestic violence</p>
+          <a href='tel:1-800-799-7233' class='emergency-phone'>
+            1-800-799-7233
+          </a>
+        </div>
+        
+        <div class='emergency-card'>
+          <h4>Childhelp National Child Abuse Hotline</h4>
+          <p>Support for child abuse prevention and intervention</p>
+          <a href='tel:1-800-422-4453' class='emergency-phone'>
+            1-800-422-4453
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Service Area Cities -->
+    <div class='service-area'>
+      <h3>Serving These East Texas Communities</h3>
+      <div class='cities-grid'>
+        
+        <span class='city-tag'>Tyler</span>
+        
+        <span class='city-tag'>Longview</span>
+        
+        <span class='city-tag'>Jefferson</span>
+        
+        <span class='city-tag'>Marshall</span>
+        
+        <span class='city-tag'>Kemp</span>
+        
+        <span class='city-tag'>Mineola</span>
+        
+        <span class='city-tag'>Athens</span>
+        
+        <span class='city-tag'>Jacksonville</span>
+        
+        <span class='city-tag'>Nacogdoches</span>
+        
+        <span class='city-tag'>Lufkin</span>
+        
+        <span class='city-tag'>Palestine</span>
+        
+        <span class='city-tag'>Canton</span>
+        
+        <span class='city-tag'>Wills Point</span>
+        
+        <span class='city-tag'>Van</span>
+        
+        <span class='city-tag'>Gilmer</span>
+        
+        <span class='city-tag'>Henderson</span>
+        
+        <span class='city-tag'>Kilgore</span>
+        
+        <span class='city-tag'>White Oak</span>
+        
+        <span class='city-tag'>Hallsville</span>
+        
+        <span class='city-tag'>Waskom</span>
+        
+      </div>
+      <p class='service-note'>
+        Additional cities and services available. Contact us for specific location assistance.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+ <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script> <script src='/js/accessibility-enhanced.js'></script>
+ <script src='/js/main.js' type='module'></script>
+</body>
+
+</html>

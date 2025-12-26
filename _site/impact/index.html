@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Our Community Impact - Properties 4 Creations</title>
+  <link rel='manifest' href='/manifest.json' />
+  <link rel='apple-touch-icon' href='/images/apple-touch-icon.png' />
+  
+  <meta name='msapplication-TileColor' content='#0B1120' />
+  <meta name='description'
+    content='Real families. Real homes. Real change in East Texas. See our community impact and stories of hope.' />
+</head>
+
+<body>
+  <!-- Skip Link -->
+  <a href='#main-content' class='skip-link'>Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+  <main id='main-content'>
+    <!-- IMPACT HERO -->
+    <section class='video-hero' aria-label='Our Community Impact'>
+      <div class='video-container'>
+        <video 
+          class='hero-video' 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          preload='metadata'
+          poster='/images/banners/hero-impact-banner.webp'
+          aria-label='Our Community Impact'
+        >
+          <source src='/videos/hero-our-work-banner.mp4' type='video/mp4'>
+          <p>Your browser does not support the video tag. <a href='/videos/hero-our-work-banner.mp4'>Download the video</a> instead.</p>
+        </video>
+        
+        <!-- Fallback image for browsers that don't support video or when video fails to load -->
+        <div class='video-fallback' style="background-image: url('/images/banners/hero-impact-banner.webp');"></div>
+        
+        <div class='video-overlay'>
+          <div class='container'>
+            <h1>Our Community Impact</h1>
+            <p class='hero-subtitle'>Real families. Real homes. Real change in East Texas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT STATS -->
+    <section class='impact-stats'>
+      <div class='impact-stat'>
+        <div class='impact-stat-number'>55+</div>
+        <div class='impact-stat-label'>Safe Homes Provided</div>
+      </div>
+      <div class='impact-stat'>
+        <div class='impact-stat-number'>20+</div>
+        <div class='impact-stat-label'>Veterans Housed</div>
+      </div>
+      <div class='impact-stat'>
+        <div class='impact-stat-number'>25+</div>
+        <div class='impact-stat-label'>Renovations Completed</div>
+      </div>
+      <div class='impact-stat'>
+        <div class='impact-stat-number'>100%</div>
+        <div class='impact-stat-label'>Section 8 Excellence</div>
+      </div>
+    </section>
+
+    <!-- IMPACT STORIES -->
+    <section class='impact-stories'>
+      <div class='container'>
+        <h2>Stories of Hope</h2>
+
+        <div class='story-card'>
+          <h4><i data-lucide='user'></i> James M. - Veteran, Tyler TX</h4>
+          <p>
+            "After my service, finding stable housing was a challenge.
+            Properties 4 Creations connected me with a beautiful, renovated
+            home. The entire process was transparent and respectful. I'm proud
+            to be home."
+          </p>
+        </div>
+
+        <div class='story-card'>
+          <h4>
+            <i data-lucide='users'></i> Rodriguez Family - HUD-VASH Recipient,
+            Longview TX
+          </h4>
+          <p>
+            "We went from unstable housing to a safe, modern home for our two
+            children. The quality renovations and respectful staff made all
+            the difference. This is our foundation for a brighter future."
+          </p>
+        </div>
+
+        <div class='story-card'>
+          <h4>
+            <i data-lucide='heart'></i> Sarah W. - Section 8 Participant,
+            Tyler TX
+          </h4>
+          <p>
+            "No other landlord accepted my Section 8 voucher. Properties 4
+            Creations welcomed us without judgment. Our apartment is beautiful
+            and we feel safe and valued."
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src='/js/accessibility-enhanced.js'></script>
+  <script>
+    // Video loading optimization and fallback handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.querySelector('.hero-video');
+      const fallback = document.querySelector('.video-fallback');
+      
+      if (video) {
+        // Hide fallback when video loads
+        video.addEventListener('loadeddata', function() {
+          fallback.style.display = 'none';
+        });
+        
+        // Show fallback if video fails to load
+        video.addEventListener('error', function() {
+          fallback.style.display = 'block';
+        });
+        
+        // Handle video visibility for performance
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              video.play().catch(e => {
+                console.warn('Video autoplay failed:', e);
+                fallback.style.display = 'block';
+              });
+            } else {
+              video.pause();
+            }
+          });
+        });
+        
+        observer.observe(video);
+      }
+    });
+  </script>
+</body>
+
+</html>

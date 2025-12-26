@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Offline - Properties 4 Creations</title>
+  <meta name='theme-color' content='#0B1120' />
+  <link rel='manifest' href='manifest.json' />
+  <style>
+    :root {
+      --navy: #0b1120;
+      --gold: #c28e5a;
+      --beige: #f5f5f0;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2332 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      color: var(--white);
+    }
+
+    .offline-container {
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .offline-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .offline-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #d99a6a);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(194, 142, 90, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      margin-top: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      font-size: 0.875rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ef4444;
+      animation: pulse 2s infinite;
+    }
+
+    .status-dot.online {
+      background: #22c55e;
+      animation: none;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .cached-pages {
+      margin-top: 2rem;
+      text-align: left;
+    }
+
+    .cached-pages h2 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+
+    .cached-pages ul {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .cached-pages a {
+      display: block;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: var(--white);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cached-pages a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .offline-icon {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class='offline-container'>
+    <div class='offline-icon'>
+      <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M1 1l22 22' stroke-linecap='round' />
+        <path d='M16.72 11.06A10.94 10.94 0 0 1 19 12.55' />
+        <path d='M5 12.55a10.94 10.94 0 0 1 5.17-2.39' />
+        <path d='M10.71 5.05A16 16 0 0 1 22.58 9' />
+        <path d='M1.42 9a15.91 15.91 0 0 1 4.7-2.88' />
+        <path d='M8.53 16.11a6 6 0 0 1 6.95 0' />
+        <line x1='12' y1='20' x2='12.01' y2='20' />
+      </svg>
+    </div>
+
+    <h1>You're Offline</h1>
+    <p>
+      It looks like you've lost your internet connection. Don't worry - some
+      pages may still be available from your device's cache.
+    </p>
+
+    <div class='actions'>
+      <button onclick='window.location.reload()' class='btn btn-primary'>
+        <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
+          <path d='M23 4v6h-6' />
+          <path d='M1 20v-6h6' />
+          <path d='M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15' />
+        </svg>
+        Try Again
+      </button>
+
+      <a href='/' class='btn btn-secondary'>
+        <svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
+          <path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' />
+          <polyline points='9 22 9 12 15 12 15 22' />
+        </svg>
+        Go Home
+      </a>
+    </div>
+
+    <div class='status-indicator'>
+      <span class='status-dot' id='status-dot'></span>
+      <span id='status-text'>Checking connection...</span>
+    </div>
+
+    <div class='cached-pages' id='cached-pages' style='display: none'>
+      <h2>Available Offline Pages</h2>
+      <ul id='cached-list'></ul>
+    </div>
+  </div>
+
+  <script>
+    // Check online status
+    function updateOnlineStatus() {
+      const dot = document.getElementById('status-dot');
+      const text = document.getElementById('status-text');
+
+      if (navigator.onLine) {
+        dot.classList.add('online');
+        text.textContent = 'Connection restored! Reloading...';
+        setTimeout(() => window.location.reload(), 1500);
+      } else {
+        dot.classList.remove('online');
+        text.textContent = 'No internet connection';
+      }
+    }
+
+    // Listen for online/offline events
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    // Initial check
+    updateOnlineStatus();
+
+    // Show cached pages
+    async function showCachedPages() {
+      if ('caches' in window) {
+        try {
+          const cacheNames = await caches.keys();
+          const cachedUrls = new Set();
+
+          for (const cacheName of cacheNames) {
+            const cache = await caches.open(cacheName);
+            const keys = await cache.keys();
+
+            keys.forEach((request) => {
+              const url = new URL(request.url);
+              if (url.pathname.endsWith('.html') || url.pathname === '/') {
+                cachedUrls.add(url.pathname);
+              }
+            });
+          }
+
+          if (cachedUrls.size > 0) {
+            const container = document.getElementById('cached-pages');
+            const list = document.getElementById('cached-list');
+
+            const pageNames = {
+              '/': 'Home',
+              '/index.html': 'Home',
+              '/properties.html': 'Properties',
+              '/about.html': 'About Us',
+              '/contact.html': 'Contact',
+              '/apply.html': 'Apply',
+              '/resources.html': 'Resources',
+              '/faq.html': 'FAQ',
+              '/impact.html': 'Our Impact',
+              '/transparency.html': 'Transparency',
+            };
+
+            cachedUrls.forEach((url) => {
+              const name =
+                pageNames[url] || url.replace('.html', '').replace('/', '');
+              if (name && url !== '/offline.html') {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href='${url}'>${name}</a>`;
+                list.appendChild(li);
+              }
+            });
+
+            if (list.children.length > 0) {
+              container.style.display = 'block';
+            }
+          }
+        } catch (error) {
+          console.error('Error checking cached pages:', error);
+        }
+      }
+    }
+
+    showCachedPages();
+  </script>
+</body>
+
+</html>

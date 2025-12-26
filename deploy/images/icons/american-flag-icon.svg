@@ -1,0 +1,67 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 320' preserveAspectRatio='xMidYMid meet'>
+  <defs>
+    <!-- Wave Shape Clip Path -->
+    <path id='wave-path' d='M20,20 C120,-10 200,60 320,30 C420,5 480,30 500,40 V290 C480,280 420,255 320,280 C200,310 120,240 20,270 Z' />
+    
+    <!-- Shading Gradient for 3D effect -->
+    <linearGradient id='wave-gradient' x1='0%' y1='0%' x2='100%' y2='0%'>
+      <stop offset='0%' stop-color='#000' stop-opacity='0.3'/>
+      <stop offset='25%' stop-color='#fff' stop-opacity='0.1'/>
+      <stop offset='50%' stop-color='#000' stop-opacity='0.2'/>
+      <stop offset='75%' stop-color='#fff' stop-opacity='0.1'/>
+      <stop offset='100%' stop-color='#000' stop-opacity='0.1'/>
+    </linearGradient>
+
+    <!-- Star Shape -->
+    <path id='star' fill='#FFFFFF' d='M0,-10 L2.3,-3.1 L9.5,-3.1 L3.7,1.1 L5.9,8.1 L0,3.9 L-5.9,8.1 L-3.7,1.1 L-9.5,-3.1 L-2.3,-3.1 Z' transform='scale(0.8)'/>
+  </defs>
+
+  <!-- Drop Shadow for depth -->
+  <path d='M25,30 C125,0 205,70 325,40 C425,15 485,40 505,50 V300 C485,290 425,265 325,290 C205,320 125,250 25,280 Z' fill='#000000' opacity='0.2' transform='translate(5, 5)'/>
+
+  <!-- Main Flag Group masked by the wave shape -->
+  <g clip-path='url(#wave-path)'>
+    <!-- White Background (acts as white stripes) -->
+    <rect width='512' height='320' fill='#FFFFFF'/>
+
+    <!-- Red Stripes -->
+    <g fill='#B22234'>
+      <!-- 7 Red Stripes -->
+      <rect y='0' width='512' height='24.6'/>
+      <rect y='49.2' width='512' height='24.6'/>
+      <rect y='98.4' width='512' height='24.6'/>
+      <rect y='147.6' width='512' height='24.6'/>
+      <rect y='196.8' width='512' height='24.6'/>
+      <rect y='246' width='512' height='24.6'/>
+      <rect y='295.2' width='512' height='24.6'/>
+    </g>
+
+    <!-- Blue Canton -->
+    <rect width='210' height='172.2' fill='#3C3B6E'/>
+
+    <!-- Stars Pattern (Simplified for visual clarity matching the icon style) -->
+    <g transform='translate(15, 15)'>
+      <!-- Row 1 -->
+      <use href='#star' x='10' y='10'/> <use href='#star' x='45' y='10'/> <use href='#star' x='80' y='10'/> <use href='#star' x='115' y='10'/> <use href='#star' x='150' y='10'/>
+      <!-- Row 2 -->
+      <use href='#star' x='27.5' y='35'/> <use href='#star' x='62.5' y='35'/> <use href='#star' x='97.5' y='35'/> <use href='#star' x='132.5' y='35'/>
+      <!-- Row 3 -->
+      <use href='#star' x='10' y='60'/> <use href='#star' x='45' y='60'/> <use href='#star' x='80' y='60'/> <use href='#star' x='115' y='60'/> <use href='#star' x='150' y='60'/>
+      <!-- Row 4 -->
+      <use href='#star' x='27.5' y='85'/> <use href='#star' x='62.5' y='85'/> <use href='#star' x='97.5' y='85'/> <use href='#star' x='132.5' y='85'/>
+      <!-- Row 5 -->
+      <use href='#star' x='10' y='110'/> <use href='#star' x='45' y='110'/> <use href='#star' x='80' y='110'/> <use href='#star' x='115' y='110'/> <use href='#star' x='150' y='110'/>
+      <!-- Row 6 -->
+      <use href='#star' x='27.5' y='135'/> <use href='#star' x='62.5' y='135'/> <use href='#star' x='97.5' y='135'/> <use href='#star' x='132.5' y='135'/>
+    </g>
+
+    <!-- Wave Shading Overlay -->
+    <rect width='512' height='320' fill='url(#wave-gradient)' style='mix-blend-mode: multiply;'/>
+    
+    <!-- Highlight Overlay for sheen -->
+    <path d='M20,20 C120,-10 200,60 320,30 C350,22 380,20 400,25 V290 C380,285 350,280 320,280 C200,310 120,240 20,270 Z' fill='url(#wave-gradient)' opacity='0.3' style='mix-blend-mode: screen;'/>
+  </g>
+  
+  <!-- Outline for definition (optional, helps with the icon look) -->
+  <path d='M20,20 C120,-10 200,60 320,30 C420,5 480,30 500,40 V290 C480,280 420,255 320,280 C200,310 120,240 20,270 Z' fill='none' stroke='#000000' stroke-width='2' opacity='0.1'/>
+</svg>

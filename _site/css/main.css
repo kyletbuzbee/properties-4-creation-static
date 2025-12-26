@@ -1,0 +1,495 @@
+/**
+ * Main Stylesheet - Properties 4 Creations
+ * Modular CSS architecture with design tokens
+ * 
+ * This file imports all CSS modules in the correct order.
+ * Use PostCSS to bundle and minify for production.
+ */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+/* Design Tokens (CSS Custom Properties) */
+@import 'base/design-tokens.css';
+
+/* ========================================
+   Components
+   ======================================== */
+
+/* Buttons */
+@import 'components/buttons.css';
+
+/* Header */
+@import 'components/header.css';
+
+/* Hero Section */
+@import 'components/hero-section.css';
+
+/* Comparison Slider */
+@import 'components/comparison-slider.css';
+
+/* Cards */
+@import 'components/cards.css';
+
+/* Forms */
+@import 'components/forms.css';
+
+/* ========================================
+   Existing Styles (Legacy)
+   Import the existing style.css for backward compatibility
+   These will be gradually migrated to modular components
+   ======================================== */
+
+@import 'style.css';
+
+/* Note: The existing style.css contains all current styles.
+   As we migrate to the new component system, we'll remove
+   duplicate styles from style.css and rely on the modular files. */
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+/* Display Utilities */
+.u-hidden {
+  display: none !important;
+}
+.u-block {
+  display: block !important;
+}
+.u-inline {
+  display: inline !important;
+}
+.u-inline-block {
+  display: inline-block !important;
+}
+.u-flex {
+  display: flex !important;
+}
+.u-inline-flex {
+  display: inline-flex !important;
+}
+.u-grid {
+  display: grid !important;
+}
+
+/* Flexbox Utilities */
+.u-flex-row {
+  flex-direction: row;
+}
+.u-flex-column {
+  flex-direction: column;
+}
+.u-flex-wrap {
+  flex-wrap: wrap;
+}
+.u-flex-nowrap {
+  flex-wrap: nowrap;
+}
+.u-justify-start {
+  justify-content: flex-start;
+}
+.u-justify-end {
+  justify-content: flex-end;
+}
+.u-justify-center {
+  justify-content: center;
+}
+.u-justify-between {
+  justify-content: space-between;
+}
+.u-justify-around {
+  justify-content: space-around;
+}
+.u-align-start {
+  align-items: flex-start;
+}
+.u-align-end {
+  align-items: flex-end;
+}
+.u-align-center {
+  align-items: center;
+}
+.u-align-stretch {
+  align-items: stretch;
+}
+
+/* Text Utilities */
+.u-text-left {
+  text-align: left;
+}
+.u-text-center {
+  text-align: center;
+}
+.u-text-right {
+  text-align: right;
+}
+.u-text-uppercase {
+  text-transform: uppercase;
+}
+.u-text-lowercase {
+  text-transform: lowercase;
+}
+.u-text-capitalize {
+  text-transform: capitalize;
+}
+
+/* Font Weight Utilities */
+.u-font-light {
+  font-weight: var(--font-weight-light);
+}
+.u-font-normal {
+  font-weight: var(--font-weight-normal);
+}
+.u-font-medium {
+  font-weight: var(--font-weight-medium);
+}
+.u-font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+.u-font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Spacing Utilities - Margin */
+.u-m-0 {
+  margin: 0 !important;
+}
+.u-m-1 {
+  margin: var(--spacing-1) !important;
+}
+.u-m-2 {
+  margin: var(--spacing-2) !important;
+}
+.u-m-3 {
+  margin: var(--spacing-3) !important;
+}
+.u-m-4 {
+  margin: var(--spacing-4) !important;
+}
+.u-m-6 {
+  margin: var(--spacing-6) !important;
+}
+.u-m-8 {
+  margin: var(--spacing-8) !important;
+}
+
+.u-mt-0 {
+  margin-top: 0 !important;
+}
+.u-mt-1 {
+  margin-top: var(--spacing-1) !important;
+}
+.u-mt-2 {
+  margin-top: var(--spacing-2) !important;
+}
+.u-mt-3 {
+  margin-top: var(--spacing-3) !important;
+}
+.u-mt-4 {
+  margin-top: var(--spacing-4) !important;
+}
+.u-mt-6 {
+  margin-top: var(--spacing-6) !important;
+}
+.u-mt-8 {
+  margin-top: var(--spacing-8) !important;
+}
+
+.u-mb-0 {
+  margin-bottom: 0 !important;
+}
+.u-mb-1 {
+  margin-bottom: var(--spacing-1) !important;
+}
+.u-mb-2 {
+  margin-bottom: var(--spacing-2) !important;
+}
+.u-mb-3 {
+  margin-bottom: var(--spacing-3) !important;
+}
+.u-mb-4 {
+  margin-bottom: var(--spacing-4) !important;
+}
+.u-mb-6 {
+  margin-bottom: var(--spacing-6) !important;
+}
+.u-mb-8 {
+  margin-bottom: var(--spacing-8) !important;
+}
+
+.u-mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Spacing Utilities - Padding */
+.u-p-0 {
+  padding: 0 !important;
+}
+
+/* ========================================
+   Micro-Interactions and Animations
+   ======================================== */
+
+/* Hover States */
+.btn:hover, .nav-link:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Subtle Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Loading Transitions */
+.loading {
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.loading.complete {
+  opacity: 1;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+.u-p-1 {
+  padding: var(--spacing-1) !important;
+}
+.u-p-2 {
+  padding: var(--spacing-2) !important;
+}
+.u-p-3 {
+  padding: var(--spacing-3) !important;
+}
+.u-p-4 {
+  padding: var(--spacing-4) !important;
+}
+.u-p-6 {
+  padding: var(--spacing-6) !important;
+}
+.u-p-8 {
+  padding: var(--spacing-8) !important;
+}
+
+.u-py-2 {
+  padding-top: var(--spacing-2) !important;
+  padding-bottom: var(--spacing-2) !important;
+}
+.u-py-4 {
+  padding-top: var(--spacing-4) !important;
+  padding-bottom: var(--spacing-4) !important;
+}
+.u-py-6 {
+  padding-top: var(--spacing-6) !important;
+  padding-bottom: var(--spacing-6) !important;
+}
+.u-py-8 {
+  padding-top: var(--spacing-8) !important;
+  padding-bottom: var(--spacing-8) !important;
+}
+
+.u-px-2 {
+  padding-left: var(--spacing-2) !important;
+  padding-right: var(--spacing-2) !important;
+}
+.u-px-4 {
+  padding-left: var(--spacing-4) !important;
+  padding-right: var(--spacing-4) !important;
+}
+.u-px-6 {
+  padding-left: var(--spacing-6) !important;
+  padding-right: var(--spacing-6) !important;
+}
+.u-px-8 {
+  padding-left: var(--spacing-8) !important;
+  padding-right: var(--spacing-8) !important;
+}
+
+/* Width Utilities */
+.u-w-full {
+  width: 100%;
+}
+.u-w-auto {
+  width: auto;
+}
+.u-max-w-sm {
+  max-width: 640px;
+}
+.u-max-w-md {
+  max-width: 768px;
+}
+.u-max-w-lg {
+  max-width: 1024px;
+}
+.u-max-w-xl {
+  max-width: 1280px;
+}
+
+/* Accessibility Utilities */
+.u-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.u-sr-only-focusable:focus,
+.u-sr-only-focusable:active {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* Visibility Utilities */
+.u-visible {
+  visibility: visible;
+}
+.u-invisible {
+  visibility: hidden;
+}
+
+/* Responsive Visibility */
+@media (max-width: 639px) {
+  .u-hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .u-hidden-tablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-hidden-desktop {
+    display: none !important;
+  }
+}
+
+/* Color Utilities */
+.u-text-navy {
+  color: var(--color-primary-navy);
+}
+.u-text-gold {
+  color: var(--color-primary-gold);
+}
+.u-text-white {
+  color: var(--color-neutral-white);
+}
+.u-text-gray {
+  color: var(--color-neutral-gray-600);
+}
+.u-text-error {
+  color: var(--color-semantic-error);
+}
+.u-text-success {
+  color: var(--color-semantic-success);
+}
+
+.u-bg-navy {
+  background-color: var(--color-primary-navy);
+}
+.u-bg-gold {
+  background-color: var(--color-primary-gold);
+}
+.u-bg-beige {
+  background-color: var(--color-primary-beige);
+}
+.u-bg-white {
+  background-color: var(--color-neutral-white);
+}
+.u-bg-gray {
+  background-color: var(--color-neutral-gray-100);
+}
+
+/* Border Utilities */
+.u-rounded {
+  border-radius: var(--radius-base);
+}
+.u-rounded-md {
+  border-radius: var(--radius-md);
+}
+.u-rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.u-rounded-xl {
+  border-radius: var(--radius-xl);
+}
+.u-rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Shadow Utilities */
+.u-shadow-none {
+  box-shadow: var(--shadow-none);
+}
+.u-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.u-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.u-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.u-shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .u-no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+  }
+
+  .btn {
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+  }
+}

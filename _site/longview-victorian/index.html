@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Longview Victorian - Properties 4 Creations</title>
+  <link rel='manifest' href='/manifest.json' />
+  
+  <meta name='msapplication-TileColor' content='#0B1120' />
+    <meta name='description'
+    content='Historic Victorian home in Longview, TX. 4BR, 2.5BA with modern updates. Preserving East Texas heritage while providing contemporary comfort.' />
+</head>
+
+<body>
+  <!-- Skip Link -->
+  <a href='#main' class class='skip-link'>Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+  <main id='main'>
+    <!-- PROPERTY HERO -->
+    <section class='property-detail-hero longview-hero'>
+      <div class='container'>
+        <div class='property-hero-content'>
+          <h1>Longview Victorian</h1>
+          <p class='property-location'>
+            <i data-lucide='map-pin'></i> Longview, TX
+          </p>
+          <div class='property-highlights'>
+            <div class='highlight-card'>
+              <span class='highlight-value'>4</span>
+              <span class='highlight-label'>Bedrooms</span>
+            </div>
+            <div class='highlight-card'>
+              <span class='highlight-value'>2.5</span>
+              <span class='highlight-label'>Bathrooms</span>
+            </div>
+            <div class='highlight-card'>
+              <span class='highlight-value'>2,200</span>
+              <span class='highlight-label'>Sq Ft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW VICTORIAN DESCRIPTION -->
+    <section class='property-story'>
+      <div class='container'>
+        <div class='story-content'>
+          <h2>Preserving East Texas Heritage</h2>
+          <p>
+            This beautiful Longview Victorian home showcases the rich
+            architectural heritage of East Texas while providing modern
+            comfort and amenities. Built with the elegance and craftsmanship
+            of a bygone era, this home blends historic charm with contemporary
+            convenience.
+          </p>
+          <p>
+            Extensive renovations respect the original character while adding
+            all the modern systems your family needs. From the grand
+            wraparound porch to the meticulously restored woodwork, every
+            detail tells a story of preservation and renewal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class='property-features'>
+      <div class='container'>
+        <h2>Historic Renovation Features</h2>
+        <div class='features-grid'>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='fan'></i></div>
+            <h3>New HVAC System</h3>
+            <p>
+              Modern ductless mini-split system preserving historic
+              architecture
+            </p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='home'></i></div>
+            <h3>Restored Roof</h3>
+            <p>
+              Complete restoration with historic shingles and modern
+              waterproofing
+            </p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='settings'></i></div>
+            <h3>Updated Plumbing</h3>
+            <p>Modern plumbing integrated behind historic walls</p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='zap'></i></div>
+            <h3>Modern Electrical</h3>
+            <p>
+              Complete electrical upgrade while preserving original fixtures
+            </p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='brush'></i></div>
+            <h3>Elegant Kitchen</h3>
+            <p>
+              Custom cherry cabinets with granite countertops and stainless
+              appliances
+            </p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='droplets'></i></div>
+            <h3>Luxury Bathrooms</h3>
+            <p>
+              His and hers bathrooms with clawfoot tubs and modern fixtures
+            </p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='trees'></i></div>
+            <h3>Mature Landscaping</h3>
+            <p>Beautiful oak trees and Victorian-era landscaping preserved</p>
+          </div>
+          <div class='feature-card'>
+            <div class='feature-icon'><i data-lucide='columns'></i></div>
+            <h3>Historic Restoration</h3>
+            <p>Original hardwood floors lovingly restored and refinished</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class='property-gallery'>
+      <div class='container'>
+        <h2>Photo Gallery</h2>
+        <div class='gallery-grid'>
+          <div class='gallery-item'>
+            <img src='/images/our-work-gallery/our-work-remodeling.webp'
+              alt='Historic Victorian home undergoing careful renovation' loading='lazy' />
+            <p>Careful renovation preserving character</p>
+          </div>
+          <div class='gallery-item'>
+            <img src='/images/our-work-gallery/our-work-framing-door.webp'
+              alt='Authentic Victorian windows and doors restored' loading='lazy' />
+            <p>Restored Victorian architectural details</p>
+          </div>
+          <div class='gallery-item'>
+            <img src='/images/before-after-comparison/projects-before-living-room.webp'
+              alt='Before renovation - authentic 19th century living space' loading='lazy' />
+            <p>Authentic Victorian architecture</p>
+          </div>
+          <div class='gallery-item'>
+            <img src='/images/before-after-comparison/projects-after-living-room.webp'
+              alt='After renovation - preserving Victorian charm with modern comfort' loading='lazy' />
+            <p>Modern comfort meets Victorian elegance</p>
+          </div>
+          <div class='gallery-item'>
+            <img src='/images/before-after-comparison/projects-after-bathroom.webp'
+              alt='Luxury bathroom restoration in historic Victorian home' loading='lazy' />
+            <p>Luxury bathroom renovation</p>
+          </div>
+          <div class='gallery-item'>
+            <img src='/images/our-work-gallery/our-work-detailed-measuring.webp'
+              alt='Precise measurements during historic restoration project' loading='lazy' />
+            <p>Meticulous craftsmanship</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTY DETAILS -->
+    <section class='property-details-section'>
+      <div class='container'>
+        <div class='property-details-grid'>
+          <div class='details-card'>
+            <h3>Property Information</h3>
+            <dl>
+              <dt>Address</dt>
+              <dd>Longview Historic District, TX</dd>
+
+              <dt>Bedrooms</dt>
+              <dd>4 bedrooms</dd>
+
+              <dt>Bathrooms</dt>
+              <dd>2.5 bathrooms</dd>
+
+              <dt>Square Footage</dt>
+              <dd>2,200 sq ft</dd>
+
+              <dt>Year Built</dt>
+              <dd>1890 (Meticulously restored)</dd>
+
+              <dt>Property Type</dt>
+              <dd>Historic Victorian Home</dd>
+
+              <dt>Zoning</dt>
+              <dd>Historic District</dd>
+            </dl>
+          </div>
+
+          <div class='amenities-card'>
+            <h3>Historic & Modern Amenities</h3>
+            <ul>
+              <li>🏛️ Authentic Victorian architecture and craftsmanship</li>
+              <li>🏠 Grand foyer with original stained glass</li>
+              <li>🪟 Restored bay windows and intricate moldings</li>
+              <li>🍽️ Custom cherry wood kitchen cabinets</li>
+              <li>🛁 Dual master suites with luxury bathrooms</li>
+              <li>🔥 Custom wood-burning fireplace</li>
+              <li>🌿 Mature oak trees and period landscaping</li>
+              <li>🚪 Covered wraparound porch</li>
+              <li>🏘️ New architectural shingle roof</li>
+              <li>🧯 Modern safety features (smoke detectors, etc.)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Victorian Heritage Section -->
+    <section class='heritage-section'>
+      <div class='container'>
+        <h2>Victorian Heritage in Longview</h2>
+        <p>
+          Longview's Victorian homes represent the finest examples of 19th
+          century American architecture in East Texas. This property maintains
+          the integrity of its historic design while providing all the modern
+          amenities your family needs.
+        </p>
+
+        <div class='heritage-grid'>
+          <div class='heritage-card'>
+            <h3>🎨 Queen Anne Style</h3>
+            <p>
+              This Queen Anne Victorian showcases elaborate trim work, steep
+              roof pitches, and asymmetrical floor plans characteristic of the
+              style popular from 1870-1910.
+            </p>
+          </div>
+          <div class='heritage-card'>
+            <h3>🌳 Historic Preservation</h3>
+            <p>
+              Our renovation work is guided by historic preservation
+              principles, ensuring this piece of Longview's heritage is
+              protected for future generations.
+            </p>
+          </div>
+          <div class='heritage-card'>
+            <h3>🏘️ Energy Efficiency</h3>
+            <p>
+              Modern insulation and energy-efficient systems mean this
+              historic home performs as well as contemporary builds while
+              preserving architectural beauty.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEIGHBORHOOD INFORMATION -->
+    <section class='neighborhood-info'>
+      <div class='container'>
+        <h2>About the Longview Historic District</h2>
+        <div class='neighborhood-grid'>
+          <div class='neighborhood-card'>
+            <h3><i data-lucide='school'></i> Education</h3>
+            <p>Access to Longview ISD and higher education:</p>
+            <ul>
+              <li>Longview ISD schools</li>
+              <li>LeTourneau University</li>
+              <li>Kilgore College</li>
+              <li>Texas A&M-Commerce</li>
+            </ul>
+          </div>
+
+          <div class='neighborhood-card'>
+            <h3><i data-lucide='briefcase'></i> Employment</h3>
+            <p>Major employers in the Longview area:</p>
+            <ul>
+              <li>Trinity Industries (rail, construction)</li>
+              <li>East Texas Medical Center</li>
+              <li>Komatsu & subsidiaries</li>
+              <li>Louisiana-Pacific Corporation</li>
+            </ul>
+          </div>
+
+          <div class='neighborhood-card'>
+            <h3><i data-lucide='shopping-cart'></i> Arts & Culture</h3>
+            <p>Rich cultural opportunities:</p>
+            <ul>
+              <li>Longview Museum of Fine Arts</li>
+              <li>Historic downtown district</li>
+              <li>Bicentennial Park</li>
+              <li>Theatre productions at Trinity</li>
+            </ul>
+          </div>
+
+          <div class='neighborhood-card'>
+            <h3><i data-lucide='activity'></i> Recreation</h3>
+            <p>Sports and outdoor activities:</p>
+            <ul>
+              <li>Cotton Belt Railroad Park</li>
+              <li>Maude Cobb Recreation Center</li>
+              <li>Golf courses and country clubs</li>
+              <li>Lake recreation areas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION CALL TO ACTION -->
+    <section class='application-cta'>
+      <div class='container'>
+        <div class='cta-content'>
+          <h2>Ready to Call This Historic Home Yours?</h2>
+          <p>
+            This beautifully restored Victorian home in Longview's historic
+            district is HUD-VASH approved. Experience the timeless elegance of
+            East Texas architecture.
+          </p>
+          <div class='cta-buttons'>
+            <a href='apply.html' class='btn btn-primary'>Apply for This Home</a>
+            <a href='properties.html' class='btn btn-secondary'>View Other Properties</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src='/js/main.js' type='module'></script>
+
+  <script>
+    // Historic property analytics
+    document.addEventListener('DOMContentLoaded', function () {
+      // Track historic property view
+      if (window.gtag) {
+        gtag('event', 'property_detail_view', {
+          property_name: 'Longview Victorian',
+          property_location: 'Longview, TX',
+          property_type: 'historic',
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

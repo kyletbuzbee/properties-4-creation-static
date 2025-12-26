@@ -1,0 +1,532 @@
+/**
+ * Hero Section Component - Properties 4 Creations
+ * Standardized hero sections with consistent styling and responsive design
+ */
+
+/* ========================================
+   Base Hero Section
+   ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-neutral-white);
+  background-color: var(--color-primary-navy);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* ========================================
+   Hero Content Container
+   ======================================== */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: var(--spacing-8) var(--spacing-4);
+  background: rgba(11, 17, 32, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.hero-text {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   Hero Typography
+   ======================================== */
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: var(--spacing-4);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: var(--spacing-4);
+  font-weight: var(--font-weight-semibold);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: var(--spacing-6);
+  font-weight: var(--font-weight-medium);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.hero-tagline {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  margin-bottom: var(--spacing-6);
+  font-weight: var(--font-weight-medium);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  opacity: 0.8;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+/* ========================================
+   Hero CTAs
+   ======================================== */
+
+.hero-ctas {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-ctas .btn {
+  min-width: 160px;
+  font-weight: var(--font-weight-bold);
+}
+
+.hero-ctas .btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-gold), var(--color-primary-gold-light));
+  color: var(--color-primary-navy);
+  border-color: var(--color-primary-gold);
+}
+
+.hero-ctas .btn-secondary {
+  background: transparent;
+  color: var(--color-neutral-white);
+  border-color: var(--color-neutral-white);
+}
+
+.hero-ctas .btn-secondary:hover {
+  background: var(--color-neutral-white);
+  color: var(--color-primary-navy);
+}
+
+/* ========================================
+   Video Hero Specific Styles
+   ======================================== */
+
+.video-hero {
+  position: relative;
+  min-height: 70vh;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.9), rgba(11, 17, 32, 0.6));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.video-overlay .container {
+  max-width: 800px;
+  padding: 0 var(--spacing-4);
+}
+
+/* ========================================
+   Image Hero Styles
+   ======================================== */
+
+.image-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.image-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.7), rgba(11, 17, 32, 0.4));
+  z-index: 1;
+}
+
+.image-hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   Gradient Hero Styles
+   ======================================== */
+
+.gradient-hero {
+  background: linear-gradient(135deg, var(--color-primary-navy), var(--color-primary-navy-dark));
+}
+
+/* ========================================
+   Pattern Hero Styles
+   ======================================== */
+
+.pattern-hero {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(194, 142, 90, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(194, 142, 90, 0.1) 0%, transparent 50%);
+  background-blend-mode: overlay;
+}
+
+/* ========================================
+   Responsive Typography
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: var(--spacing-6) var(--spacing-3);
+    background: rgba(11, 17, 32, 0.9);
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .hero h2 {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    margin-bottom: var(--spacing-3);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-ctas .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 50vh;
+  }
+  
+  .video-hero {
+    min-height: 60vh;
+  }
+  
+  .hero-content {
+    padding: var(--spacing-4) var(--spacing-2);
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.25rem, 10vw, 2.5rem);
+  }
+  
+  .hero h2 {
+    font-size: clamp(1rem, 6vw, 1.75rem);
+  }
+}
+
+/* ========================================
+   Accessibility Enhancements
+   ======================================== */
+
+.hero:focus-within {
+  outline: 3px solid var(--color-primary-gold);
+  outline-offset: 4px;
+}
+
+.hero-content:focus-within {
+  box-shadow: 0 0 0 4px var(--color-primary-gold);
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+  
+  .video-fallback {
+    display: block;
+  }
+  
+  .hero-content {
+    background: rgba(11, 17, 32, 0.9);
+    backdrop-filter: none;
+  }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+
+@media (prefers-contrast: high) {
+  .hero-content {
+    background: var(--color-primary-navy);
+    border: 3px solid var(--color-neutral-white);
+    color: var(--color-neutral-white);
+  }
+  
+  .hero h1,
+  .hero h2 {
+    text-shadow: none;
+  }
+  
+  .hero-subtitle {
+    opacity: 1;
+  }
+  
+  .hero-ctas .btn {
+    border-width: 2px;
+  }
+  
+  .hero-ctas .btn-primary {
+    background: var(--color-neutral-white);
+    color: var(--color-primary-navy);
+    border-color: var(--color-primary-navy);
+  }
+  
+  .hero-ctas .btn-secondary {
+    background: var(--color-primary-navy);
+    color: var(--color-neutral-white);
+    border-color: var(--color-neutral-white);
+  }
+}
+
+/* ========================================
+   Dark Mode Support
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .hero {
+    background-color: var(--color-primary-navy-dark);
+  }
+  
+  .hero-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .video-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .hero {
+    background: var(--color-primary-navy);
+    min-height: auto;
+    padding: var(--spacing-8) 0;
+  }
+  
+  .hero-content {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+  
+  .hero-video,
+  .video-fallback,
+  .video-overlay {
+    display: none;
+  }
+  
+  .hero h1,
+  .hero h2 {
+    color: var(--color-primary-navy);
+    text-shadow: none;
+  }
+  
+  .hero-ctas {
+    display: none;
+  }
+}
+
+/* ========================================
+   Animation Enhancements
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+/* ========================================
+   Performance Optimizations
+   ======================================== */
+
+.hero {
+  will-change: transform;
+}
+
+.hero-video {
+  will-change: transform;
+}
+
+.hero-content {
+  will-change: transform, opacity;
+}
+
+/* ========================================
+   Scroll Effects
+   ======================================== */
+
+.hero.parallax {
+  background-attachment: fixed;
+}
+
+.hero.scroll-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* ========================================
+   Multiple Hero Variations
+   ======================================== */
+
+.hero.hero-small {
+  min-height: 40vh;
+}
+
+.hero.hero-large {
+  min-height: 80vh;
+}
+
+.hero.hero-full {
+  min-height: 100vh;
+}
+
+.hero.hero-half {
+  min-height: 50vh;
+}
+
+/* ========================================
+   Content Alignment Variations
+   ======================================== */
+
+.hero.align-left {
+  text-align: left;
+}
+
+.hero.align-left .hero-content {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.hero.align-right {
+  text-align: right;
+}
+
+.hero.align-right .hero-content {
+  margin-right: 0;
+  margin-left: auto;
+  max-width: 600px;
+}
+
+.hero.align-center {
+  text-align: center;
+}
+
+.hero.align-center .hero-content {
+  margin: 0 auto;
+}
+
+/* ========================================
+   Overlay Variations
+   ======================================== */
+
+.hero.overlay-light {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+  color: var(--color-primary-navy);
+}
+
+.hero.overlay-dark {
+  background: linear-gradient(180deg, rgba(11, 17, 32, 0.9), rgba(11, 17, 32, 0.7));
+  color: var(--color-neutral-white);
+}
+
+.hero.overlay-gold {
+  background: linear-gradient(180deg, rgba(194, 142, 90, 0.9), rgba(194, 142, 90, 0.7));
+  color: var(--color-primary-navy);
+}

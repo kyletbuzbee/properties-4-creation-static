@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}</title>
+  
+  <!-- Favicon -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/images/logo/brand-logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="/images/logo/brand-logo.svg" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <meta name="msapplication-TileColor" content="#0B1120" />
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="{% block description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{% block og_title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta property="og:url" content="{% block og_url %}/{% endblock %}" />
+  <meta property="og:image" content="/images/logo/brand-logo.svg" />
+  <meta property="og:site_name" content="Properties4Creation" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% block twitter_title %}Properties 4 Creations - Housing Veterans and Families Throughout East Texas{% endblock %}" />
+  <meta name="twitter:description" content="{% block twitter_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}" />
+  <meta name="twitter:image" content="/images/logo/brand-logo.svg" />
+  <meta name="twitter:site" content="@Properties4Creation" />
+  <meta name="twitter:creator" content="@Properties4Creation" />
+  
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Properties4Creation",
+      "url": "",
+      "logo": "/images/logo/brand-logo.svg",
+      "description": "Veteran & family housing website in East Texas",
+      "sameAs": [
+        "https://www.facebook.com/Properties4Creation",
+        "https://twitter.com/Properties4Creation",
+        "https://www.instagram.com/Properties4Creation"
+      ]
+    }
+  </script>
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/css/main.css" as="style" />
+  
+  <!-- Load main stylesheet globally for all pages -->
+  <link rel="stylesheet" href="/css/main.css" />
+  
+  <!-- DNS Prefetch for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  <link rel="dns-prefetch" href="//formspree.io" />
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="//unpkg.com" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://formspree.io" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for maps -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" integrity="sha384-b8ANgTJvdlAnWM5YGMpKn7Kodm+1k7NYNG9zdjTCcZcKatzYHwZ0RLdWarbJJVzU" crossorigin="anonymous">
+  
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header -->
+  <header class="header-glass" role="banner">
+    <div class="nav-container">
+      <div class="brand-container">
+        <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+          <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+          <span class="brand-text">Properties 4 Creations</span>
+        </a>
+      </div>
+      
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}" role="menuitem">Home</a>
+          </li>
+          <li role="none">
+            <a href="/properties/" class="nav-link {% if request.path.startswith('/properties') %}active{% endif %}" role="menuitem">Properties</a>
+          </li>
+          <li role="none">
+            <a href="/about/" class="nav-link {% if request.path == '/about/' %}active{% endif %}" role="menuitem">About</a>
+          </li>
+          <li role="none">
+            <a href="/impact/" class="nav-link {% if request.path == '/impact/' %}active{% endif %}" role="menuitem">Our Impact</a>
+          </li>
+          <li role="none">
+            <a href="/resources/" class="nav-link {% if request.path == '/resources/' %}active{% endif %}" role="menuitem">Resources</a>
+          </li>
+          <li role="none">
+            <a href="/contact/" class="nav-link {% if request.path == '/contact/' %}active{% endif %}" role="menuitem">Contact</a>
+          </li>
+        </ul>
+        
+        <div id="auth-links" class="nav-auth-links">
+          <!-- Auth links will be dynamically loaded here -->
+        </div>
+        
+        <div class="theme-toggle-container">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text">Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Auth Script -->
+  <script type="module">
+    // Simple auth state management for the template
+    document.addEventListener('DOMContentLoaded', () => {
+      const authLinksContainer = document.getElementById('auth-links');
+      const isAuthenticated = localStorage.getItem('authToken') || false;
+      
+      if (authLinksContainer) {
+        if (isAuthenticated) {
+          authLinksContainer.innerHTML = `
+            <a href="/profile/" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+            <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+          `;
+          document.getElementById('logout-btn')?.addEventListener('click', () => {
+            localStorage.removeItem('authToken');
+            window.location.href = '/login/';
+          });
+        } else {
+          authLinksContainer.innerHTML = `
+            <a href="/login/" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+            <a href="/register/" class="btn btn-primary cta-link" role="menuitem">Register</a>
+          `;
+        }
+      }
+    });
+  </script>
+  
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    {% block breadcrumb %}{% endblock %}
+    
+    {% block content %}{% endblock %}
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <!-- Emergency Banner -->
+      <div class="emergency-banner">
+        <p><strong>24/7 Support:</strong> Veterans Crisis <a href="tel:988">988</a> | Housing <a href="tel:1-800-827-1000">1-800-827-1000</a></p>
+      </div>
+      
+      <!-- Footer Content -->
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Properties 4 Creations</h4>
+          <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+          <div class="veteran-badge">🎖️ Veteran-Owned & Operated</div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/properties/">Properties</a></li>
+            <li><a href="/apply/">Apply Now</a></li>
+            <li><a href="/resources/">Resources</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📞 <a href="tel:903-555-1234">903-555-1234</a></p>
+          <p>✉️ <a href="mailto:info@properties4creation.com">info@properties4creation.com</a></p>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Properties 4 Creations. <a href="/privacy/">Privacy</a> | <a href="/terms/">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js" crossorigin="anonymous"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  
+  <!-- Leaflet JS for maps -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  
+  <!-- Main JS -->
+  <script src="/js/main.js" type="module"></script>
+  
+  <!-- Theme Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      
+      // Check for saved theme preference or use system preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        themeToggle.setAttribute('aria-pressed', 'true');
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        const isPressed = this.getAttribute('aria-pressed') === 'true';
+        
+        if (isPressed) {
+          htmlElement.setAttribute('data-theme', 'light');
+          this.setAttribute('aria-pressed', 'false');
+          localStorage.setItem('theme', 'light');
+        } else {
+          htmlElement.setAttribute('data-theme', 'dark');
+          this.setAttribute('aria-pressed', 'true');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  </script>
+  
+  <!-- Mobile Menu Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          
+          if (isExpanded) {
+            this.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+          } else {
+            this.setAttribute('aria-expanded', 'true');
+            navMenu.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+  
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

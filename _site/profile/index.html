@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>User Profile - Properties 4 Creations</title>
+<link rel='manifest' href='/manifest.json' />
+<link rel='apple-touch-icon' href='/images/logo/brand-logo.svg' />
+<link rel='icon' type='image/svg+xml' href='/images/logo/brand-logo.svg' />
+<meta name='msapplication-TileColor' content='#0B1120' />
+<meta name='description' content='View your profile and saved properties.' />
+<link rel='canonical' href='/profile/' />
+
+<!-- Open Graph -->
+<meta property='og:type' content='website' />
+<meta property='og:title' content='User Profile - Properties 4 Creations' />
+<meta property='og:description' content='View your profile and saved properties.' />
+<meta property='og:url' content='/profile/' />
+<meta property='og:image' content='/images/logo/brand-logo.svg' />
+<meta property='og:site_name' content='Properties4Creation' />
+<meta property='og:locale' content='en_US' />
+<meta property='og:updated_time' content='December 24, 2025' />
+
+<!-- Twitter Cards -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' content='User Profile - Properties 4 Creations' />
+<meta name='twitter:description' content='View your profile and saved properties.' />
+<meta name='twitter:image' content='/images/logo/brand-logo.svg' />
+<meta name='twitter:site' content='@Properties4Creation' />
+<meta name='twitter:creator' content='@Properties4Creation' />
+
+<!-- Theme Colors for light/dark -->
+<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+<meta name='theme-color' content='#0B1120' media='(prefers-color-scheme: dark)' />
+
+<!-- Favicon fallbacks -->
+<link rel='icon' href='/favicon.ico' sizes='any' />
+
+<!-- Structured Data for SEO -->
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Properties4Creation",
+  "url": "",
+  "logo": "/images/logo/brand-logo.svg",
+  "description": "Veteran & family housing website in East Texas",
+  "sameAs": [
+    "https://www.facebook.com/Properties4Creation",
+    "https://twitter.com/Properties4Creation",
+    "https://www.instagram.com/Properties4Creation"
+  ]
+}
+</script>
+
+<!-- Preload Critical Assets -->
+<link rel='preload' href='/css/style.css' as='style' />
+
+<!-- Load main stylesheet globally for all pages -->
+<link rel='stylesheet' href='/css/style.css' />
+
+<!-- DNS Prefetch for Performance -->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//formspree.io' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+
+<!-- Preconnect for Performance -->
+<link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+<link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+<link rel='preconnect' href='https://formspree.io' crossorigin />
+<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
+<link rel='preconnect' href='https://unpkg.com' crossorigin />
+
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+  <main id="main-content">
+    
+<main id="main-content">
+  <section class="container profile-section">
+    <h1>Your Profile</h1>
+    <div id="profile-content">
+      <p>Loading user data...</p>
+    </div>
+    <button id="logout-button" class="btn btn-secondary">Logout</button>
+
+    <h2>Your Saved Properties</h2>
+    <div id="saved-properties-grid" class="properties-grid">
+      <p>No saved properties yet.</p>
+    </div>
+    <div id="profile-message" class="message-box error-message" aria-live="polite" style="display: none;"></div>
+  </section>
+</main>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Redirect if not authenticated
+    if (!auth.isAuthenticated) {
+      window.location.href = '/login.html';
+      return;
+    }
+
+    const profileContent = document.getElementById('profile-content');
+    const savedPropertiesGrid = document.getElementById('saved-properties-grid');
+    const profileMessage = document.getElementById('profile-message');
+    const logoutButton = document.getElementById('logout-button');
+
+    logoutButton.addEventListener('click', () => {
+      auth.logout();
+      window.location.href = '/login.html';
+    });
+
+    // Display user info
+    if (auth.user) {
+      profileContent.innerHTML = `
+        <p><strong>Name:</strong> ${auth.user.name}</p>
+        <p><strong>Email:</strong> ${auth.user.email}</p>
+      `;
+    } else {
+      // Try loading user if not already loaded (e.g., direct access to profile page)
+      await auth.loadUser();
+      if (auth.user) {
+        profileContent.innerHTML = `
+          <p><strong>Name:</strong> ${auth.user.name}</p>
+          <p><strong>Email:</strong> ${auth.user.email}</p>
+        `;
+      } else {
+        profileContent.innerHTML = `<p>Unable to load user data. Please <a href="/login.html">login</a> again.</p>`;
+        profileMessage.textContent = 'Unable to load user data.';
+        profileMessage.style.display = 'block';
+        return;
+      }
+    }
+
+    // Fetch and display saved properties
+    async function loadSavedProperties() {
+      try {
+        const response = await fetch('/api/users/me/saved-properties', {
+          headers: auth.getAuthHeaders()
+        });
+        const savedPropertyIds = await response.json();
+
+        if (response.ok && savedPropertyIds.length > 0) {
+          // You'll need to fetch the full property details from your properties.json or a similar source
+          // For now, let's just display the IDs or a placeholder
+          savedPropertiesGrid.innerHTML = `
+            ${savedPropertyIds.map(id => `<div class="property-card"><p>Saved Property ID: ${id}</p></div>`).join('')}
+          `;
+          profileMessage.style.display = 'none';
+        } else if (response.ok && savedPropertyIds.length === 0) {
+          savedPropertiesGrid.innerHTML = `<p>You haven't saved any properties yet.</p>`;
+          profileMessage.style.display = 'none';
+        } else {
+          profileMessage.textContent = 'Error loading saved properties.';
+          profileMessage.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Error fetching saved properties:', error);
+        profileMessage.textContent = 'Network error loading saved properties.';
+        profileMessage.style.display = 'block';
+      }
+    }
+
+    loadSavedProperties();
+  });
+</script>
+
+  </main>
+
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+ <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script> <script src='/js/accessibility-enhanced.js'></script>
+ <script src='/js/main.js' type='module'></script>
+</body>
+
+</html>

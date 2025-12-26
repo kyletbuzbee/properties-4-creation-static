@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Privacy Policy - Properties 4 Creations</title>
+  <link rel='manifest' href='/manifest.json' />
+  
+  <meta name='msapplication-TileColor' content='#0B1120' />
+      <meta name='description'
+      content='Properties 4 Creations privacy policy for veteran housing applications and services in East Texas.' />
+  </head>
+  
+  <body>
+    <!-- Skip Link -->
+    <a href='#main' class='skip-link'>Skip to main content</a>
+  
+    <!-- HEADER -->
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+  
+    <main id='main'>    <!-- PAGE HEADER -->
+    <section class='page-banner' style="
+          background-image: url(&quot;/images/banners/hero-privacy-banner.webp&quot;);
+          background-size: cover;
+          background-position: center;
+        ">
+      <div class='container'>
+        <h1>Privacy Policy</h1>
+        <p>How we protect and use your personal information</p>
+      </div>
+    </section>
+
+    <!-- PRIVACY CONTENT -->
+    <section class='privacy-container container'>
+      <div class='resources-header'>
+        <p class='last-updated'>
+          <strong>Last Updated: December 14, 2025</strong>
+        </p>
+      </div>
+
+      <div class='privacy-content'>
+        <div class='privacy-section'>
+          <h2>Overview</h2>
+          <p>
+            Properties 4 Creations ('we,' 'our,' or 'us') is committed to
+            protecting the privacy and security of your personal information.
+            This Privacy Policy explains how we collect, use, disclose, and
+            safeguard your information when you use our website, apply for
+            housing, or interact with our services.
+          </p>
+          <p>
+            We are a veteran-owned housing provider specializing in premium,
+            renovated homes for veterans and families in East Texas. We comply
+            with all applicable privacy laws and regulations, including the
+            Fair Housing Act and Texas privacy laws.
+          </p>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Information We Collect</h2>
+
+          <h3>Personal Information</h3>
+          <p>We may collect the following types of personal information:</p>
+          <ul>
+            <li>
+              <strong>Contact Information:</strong> Name, phone number, email
+              address, mailing address
+            </li>
+            <li>
+              <strong>Demographic Information:</strong> Date of birth,
+              household size, income information
+            </li>
+            <li>
+              <strong>Housing Information:</strong> Housing assistance program
+              participation, voucher details
+            </li>
+            <li>
+              <strong>Military Service Information:</strong> Branch of
+              service, discharge status (for veteran applicants)
+            </li>
+            <li>
+              <strong>Housing Preferences:</strong> Preferred property types,
+              accessibility needs, move-in timeline
+            </li>
+            <li>
+              <strong>Communication Records:</strong> Messages, questions, and
+              feedback you send to us
+            </li>
+          </ul>
+
+          <h3>Automatically Collected Information</h3>
+          <p>When you visit our website, we may automatically collect:</p>
+          <ul>
+            <li>
+              <strong>Usage Data:</strong> Pages visited, time spent on pages,
+              click patterns
+            </li>
+            <li>
+              <strong>Technical Data:</strong> IP address, browser type,
+              operating system, device type
+            </li>
+            <li>
+              <strong>Analytics:</strong> Google Analytics data for website
+              improvement
+            </li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>How We Use Your Information</h2>
+          <p>We use collected information for the following purposes:</p>
+
+          <h3>Housing Services</h3>
+          <ul>
+            <li>Process housing applications and determine eligibility</li>
+            <li>
+              Verify income and voucher information with housing authorities
+            </li>
+            <li>Match applicants with suitable properties</li>
+            <li>Manage lease agreements and property assignments</li>
+            <li>Coordinate move-in processes and property showings</li>
+          </ul>
+
+          <h3>Communication</h3>
+          <ul>
+            <li>Respond to inquiries and provide customer support</li>
+            <li>Send important updates about applications and properties</li>
+            <li>Provide information about housing programs and resources</li>
+            <li>Share transparency reports and property information</li>
+          </ul>
+
+          <h3>Legal Compliance</h3>
+          <ul>
+            <li>
+              Comply with Fair Housing laws and anti-discrimination
+              requirements
+            </li>
+            <li>Meet reporting requirements for housing programs</li>
+            <li>
+              Maintain accurate records for landlord-tenant relationships
+            </li>
+            <li>Protect against fraud and ensure tenant safety</li>
+          </ul>
+
+          <h3>Website Improvement</h3>
+          <ul>
+            <li>Analyze website usage to improve user experience</li>
+            <li>Debug technical issues and ensure site functionality</li>
+            <li>Personalize content based on housing interests</li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Information Sharing and Disclosure</h2>
+          <p>
+            We do not sell, trade, or rent your personal information to third
+            parties. We may share information only in the following
+            circumstances:
+          </p>
+
+          <h3>Housing Program Verification</h3>
+          <ul>
+            <li>
+              <strong>HUD and VA:</strong> Verify voucher status and
+              eligibility with HUD-VASH coordinators or VA representatives
+            </li>
+            <li>
+              <strong>Public Housing Authorities:</strong> Confirm Section 8
+              voucher validity and compliance
+            </li>
+            <li>
+              <strong>Background Check Providers:</strong> Conduct tenant
+              screening for safety and compliance
+            </li>
+          </ul>
+
+          <h3>Legal Requirements</h3>
+          <ul>
+            <li>Respond to subpoenas, court orders, or legal requirements</li>
+            <li>
+              Report suspected fraud, criminal activity, or safety threats
+            </li>
+            <li>
+              Comply with government housing program audits and reporting
+            </li>
+          </ul>
+
+          <h3>Service Providers</h3>
+          <ul>
+            <li>
+              Property management software providers (with data protection
+              agreements)
+            </li>
+            <li>
+              Professional services (legal, accounting) under confidentiality
+              agreements
+            </li>
+            <li>Website hosting and maintenance providers</li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Data Security</h2>
+          <p>
+            We implement appropriate technical, administrative, and physical
+            security measures to protect your personal information:
+          </p>
+
+          <h3>Technical Protections</h3>
+          <ul>
+            <li>SSL/TLS encryption for data transmission</li>
+            <li>Secure data storage with access controls</li>
+            <li>Regular security audits and updates</li>
+            <li>Multi-factor authentication for staff access</li>
+          </ul>
+
+          <h3>Administrative Protections</h3>
+          <ul>
+            <li>
+              Limited access to personal information on need-to-know basis
+            </li>
+            <li>Staff training on privacy and security procedures</li>
+            <li>Regular security awareness programs</li>
+            <li>Incident response and breach notification procedures</li>
+          </ul>
+
+          <h3>Physical Protections</h3>
+          <ul>
+            <li>Secure office facilities with access controls</li>
+            <li>Document storage in locked cabinets</li>
+            <li>Secure disposal of physical records</li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Your Rights and Choices</h2>
+
+          <h3>Access and Correction</h3>
+          <p>You have the right to:</p>
+          <ul>
+            <li>Request access to your personal information we maintain</li>
+            <li>
+              Request correction of inaccurate or incomplete information
+            </li>
+            <li>Receive a copy of your information in a portable format</li>
+          </ul>
+
+          <h3>Communication Preferences</h3>
+          <p>You may:</p>
+          <ul>
+            <li>
+              Opt out of marketing communications (though we rarely send
+              these)
+            </li>
+            <li>
+              Choose how you wish to be contacted for application updates
+            </li>
+            <li>Update your contact information at any time</li>
+          </ul>
+
+          <h3>Data Deletion</h3>
+          <p>
+            You can request deletion of your information, though we may retain
+            certain information as required by law or for legitimate business
+            purposes, such as:
+          </p>
+          <ul>
+            <li>Completed lease records (for legal compliance)</li>
+            <li>Financial records (for tax and accounting purposes)</li>
+            <li>Communications about safety or legal matters</li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Cookies and Tracking</h2>
+          <p>Our website uses cookies and similar technologies:</p>
+
+          <h3>Essential Cookies</h3>
+          <ul>
+            <li>Remember your session and security preferences</li>
+            <li>Enable website functionality and navigation</li>
+            <li>Process applications and forms</li>
+          </ul>
+
+          <h3>Analytics Cookies</h3>
+          <ul>
+            <li>Google Analytics to understand website usage</li>
+            <li>Help improve user experience</li>
+            <li>Identify technical issues</li>
+          </ul>
+
+          <p>
+            You can manage cookie preferences through your browser settings,
+            though disabling essential cookies may affect website
+            functionality.
+          </p>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Children's Privacy</h2>
+          <p>
+            Our services are intended for adults 18 years and older. We do not
+            knowingly collect personal information from children under 18. If
+            we become aware that we have collected information from a child,
+            we will delete it immediately.
+          </p>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy periodically to reflect changes
+            in our practices or applicable laws. We will:
+          </p>
+          <ul>
+            <li>Post the updated policy on our website</li>
+            <li>Update the 'Last Updated' date above</li>
+            <li>
+              Notify you of significant changes via email or website notice
+            </li>
+            <li>Continue to respect the privacy choices you've made</li>
+          </ul>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Contact Us About Privacy</h2>
+          <p>
+            If you have questions about this Privacy Policy or our data
+            practices, please contact us:
+          </p>
+
+          <div class='contact-methods'>
+            <p>
+              <strong>Properties 4 Creations</strong><br />
+              Privacy Officer<br />
+              Tyler, Texas
+            </p>
+
+            <p>
+              <strong>Email:</strong> privacy@properties4creations.com<br />
+              <strong>Phone:</strong> (903) 555-1234
+            </p>
+          </div>
+
+          <p>
+            Response Time: We respond to privacy inquiries within 48 hours.
+          </p>
+        </div>
+
+        <div class='privacy-section'>
+          <h2>Complaints and Dispute Resolution</h2>
+          <p>If you believe your privacy rights have been violated:</p>
+          <ul>
+            <li>Contact us directly first for resolution</li>
+            <li>File a complaint with the Texas Attorney General's Office</li>
+            <li>
+              Report housing discrimination to HUD (fairhousing@HUD.gov)
+            </li>
+            <li>Contact appropriate state or federal regulatory agencies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

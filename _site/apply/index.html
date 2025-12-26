@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title></title>
+<link rel='manifest' href='/manifest.json' />
+<link rel='apple-touch-icon' href='/images/logo/brand-logo.svg' />
+<link rel='icon' type='image/svg+xml' href='/images/logo/brand-logo.svg' />
+<meta name='msapplication-TileColor' content='#0B1120' />
+<meta name='description' content='' />
+<link rel='canonical' href='/apply/' />
+
+<!-- Open Graph -->
+<meta property='og:type' content='website' />
+<meta property='og:title' content='Properties4Creation' />
+<meta property='og:description' content='Affordable, sustainable properties for veterans and families in East Texas.' />
+<meta property='og:url' content='/apply/' />
+<meta property='og:image' content='/images/logo/brand-logo.svg' />
+<meta property='og:site_name' content='Properties4Creation' />
+<meta property='og:locale' content='en_US' />
+<meta property='og:updated_time' content='December 24, 2025' />
+
+<!-- Twitter Cards -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' content='Properties4Creation' />
+<meta name='twitter:description' content='Affordable, sustainable properties for veterans and families in East Texas.' />
+<meta name='twitter:image' content='/images/logo/brand-logo.svg' />
+<meta name='twitter:site' content='@Properties4Creation' />
+<meta name='twitter:creator' content='@Properties4Creation' />
+
+<!-- Theme Colors for light/dark -->
+<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+<meta name='theme-color' content='#0B1120' media='(prefers-color-scheme: dark)' />
+
+<!-- Favicon fallbacks -->
+<link rel='icon' href='/favicon.ico' sizes='any' />
+
+<!-- Structured Data for SEO -->
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Properties4Creation",
+  "url": "",
+  "logo": "/images/logo/brand-logo.svg",
+  "description": "Veteran & family housing website in East Texas",
+  "sameAs": [
+    "https://www.facebook.com/Properties4Creation",
+    "https://twitter.com/Properties4Creation",
+    "https://www.instagram.com/Properties4Creation"
+  ]
+}
+</script>
+
+<!-- Preload Critical Assets -->
+<link rel='preload' href='/css/style.css' as='style' />
+
+<!-- Load main stylesheet globally for all pages -->
+<link rel='stylesheet' href='/css/style.css' />
+
+<!-- DNS Prefetch for Performance -->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//formspree.io' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+
+<!-- Preconnect for Performance -->
+<link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+<link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+<link rel='preconnect' href='https://formspree.io' crossorigin />
+<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
+<link rel='preconnect' href='https://unpkg.com' crossorigin />
+
+</head>
+
+<body>
+    <!-- Skip Link -->
+    <a href='#main' class='skip-link'>Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+    <main id='main-content'>
+        <!-- APPLICATION HEADER -->
+        <section class='page-banner bg-contact-banner' aria-label='Apply for Housing with Properties 4 Creations'></section>
+        <div class='container'>
+            <h1>Start Your Application</h1>
+            <p>
+                Your next chapter starts here. We accept Section 8 and HUD-VASH
+                vouchers.
+            </p>
+        </div>
+        </section>
+
+        <!-- APPLICATION FORM -->
+        <section class='form-container'>
+            <div class='container'>
+                <div class='form-wrapper'>
+                    <h1>Application for Housing</h1>
+                    <p>
+                        Please complete this form to begin your housing application. We'll
+                        review your information and contact you within 24-48 hours.
+                    </p>
+
+                    <div id='success-message' class='success-message'>
+                        ✓ Your application has been submitted successfully! We'll be in
+                        touch within 24-48 hours.
+                    </div>
+
+                    <form id='application-form' name='application-form'>
+                        <!-- Personal Information -->
+                        <fieldset>
+                            <legend>Personal Information</legend>
+
+                            <div class='form-group'>
+                                <label for='full-name'>Full Legal Name *</label>
+                                <input type='text' id='full-name' name='fullName' required />
+                                <span class='error-message'>Full name is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='email'>Email Address *</label>
+                                <input type='email' id='email' name='email' required />
+                                <span class='error-message'>Valid email address is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='phone'>Primary Phone Number *</label>
+                                <input type='tel' id='phone' name='phone' required pattern='[0-9\-\+\(\)\s]+' />
+                                <span class='error-message'>Valid phone number is required (numbers, spaces, dashes,
+                                    parentheses only)</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='date-of-birth'>Date of Birth *</label>
+                                <input type='date' id='date-of-birth' name='dateOfBirth' required />
+                                <span class='error-message'>Date of birth is required</span>
+                            </div>
+                        </fieldset>
+
+                        <!-- Application Type & Voucher Information -->
+                        <fieldset>
+                            <legend>Housing Assistance</legend>
+
+                            <div class='form-group'>
+                                <label for='applicant-type'>How are you applying? *</label>
+                                <select id='applicant-type' name='applicantType' required>
+                                    <option value=''>-- Select an option --</option>
+                                    <option value='veteran'>Veteran</option>
+                                    <option value='spouse'>
+                                        Spouse/Surviving Spouse of Veteran
+                                    </option>
+                                    <option value='family'>Family Member</option>
+                                    <option value='general'>General Applicant</option>
+                                    <option value='other'>Other</option>
+                                </select>
+                                <span class='error-message'>Please select how you are applying</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='voucher-type'>What voucher or housing assistance do you hold? *</label>
+                                <select id='voucher-type' name='voucherType' required>
+                                    <option value=''>-- Select an option --</option>
+                                    <option value='hudvash'>
+                                        HUD-VASH (HUD-VA Supportive Housing)
+                                    </option>
+                                    <option value='section8'>
+                                        Section 8 Housing Choice Voucher
+                                    </option>
+                                    <option value='ssvf'>
+                                        SSVF (Supportive Services for Veteran Families)
+                                    </option>
+                                    <option value='rapid_rehousing'>Rapid Re-housing</option>
+                                    <option value='family_unification'>
+                                        Family Unification Program (FUP)
+                                    </option>
+                                    <option value='other_voucher'>Other Voucher Program</option>
+                                    <option value='no_voucher'>
+                                        No voucher yet - need guidance
+                                    </option>
+                                </select>
+                                <span class='error-message'>Please select your housing assistance type</span>
+                            </div>
+
+                            <div class='form-group' id='military-service-group'>
+                                <label for='military-service'>Military Service (for Veterans) *</label>
+                                <select id='military-service' name='militaryService'>
+                                    <option value=''>-- Select branch --</option>
+                                    <option value='army'>U.S. Army</option>
+                                    <option value='navy'>U.S. Navy</option>
+                                    <option value='air_force'>U.S. Air Force</option>
+                                    <option value='marines'>U.S. Marine Corps</option>
+                                    <option value='coast_guard'>U.S. Coast Guard</option>
+                                    <option value='space_force'>U.S. Space Force</option>
+                                    <option value='national_guard'>National Guard</option>
+                                    <option value='reserves'>Reserves</option>
+                                    <option value='other_active'>Other Active Duty</option>
+                                    <option value='not_applicable'>Not Applicable</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <!-- Household Information -->
+                        <fieldset>
+                            <legend>Household Information</legend>
+
+                            <div class='form-group'>
+                                <label for='household-size'>Total Number of People in Household (including yourself)
+                                    *</label>
+                                <select id='household-size' name='householdSize' required>
+                                    <option value=''>-- Select size --</option>
+                                    <option value='1'>1 Person</option>
+                                    <option value='2'>2 People</option>
+                                    <option value='3'>3 People</option>
+                                    <option value='4'>4 People</option>
+                                    <option value='5'>5 People</option>
+                                    <option value='6'>6+ People</option>
+                                </select>
+                                <span class='error-message'>Household size is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='preferred-bedrooms'>Preferred Number of Bedrooms *</label>
+                                <select id='preferred-bedrooms' name='preferredBedrooms' required>
+                                    <option value=''>-- Select bedrooms --</option>
+                                    <option value='studio'>
+                                        Studio/Efficiency (0 bedrooms)
+                                    </option>
+                                    <option value='1'>1 Bedroom</option>
+                                    <option value='2'>2 Bedrooms</option>
+                                    <option value='3'>3 Bedrooms</option>
+                                    <option value='4'>4+ Bedrooms</option>
+                                </select>
+                                <span class='error-message'>Please select preferred bedrooms</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='monthly-income'>Monthly Gross Income *</label>
+                                <input type='number' id='monthly-income' name='monthlyIncome' required min='0'
+                                    placeholder='$' />
+                                <span class='error-message'>Monthly income is required</span>
+                                <small>We use this to verify voucher eligibility and determine
+                                    appropriate housing</small>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='move-in-date'>Preferred Move-in Date</label>
+                                <select id='move-in-date' name='moveInDate'>
+                                    <option value=''>-- Select timeframe --</option>
+                                    <option value='asap'>As soon as possible</option>
+                                    <option value='within_30'>Within 30 days</option>
+                                    <option value='within_60'>Within 60 days</option>
+                                    <option value='within_90'>Within 90 days</option>
+                                    <option value='future'>More than 90 days</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <!-- Special Needs & Preferences -->
+                        <fieldset>
+                            <legend>Special Needs & Preferences</legend>
+
+                            <div class='form-group'>
+                                <label for='housing-preferences'>Housing Preferences</label>
+                                <textarea id='housing-preferences' name='housingPreferences' rows='3'
+                                    placeholder='e.g., ground floor, accessible features, pet-friendly, specific locations, etc.'></textarea>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='special-needs'>Accessibility or Special Needs</label>
+                                <textarea id='special-needs' name='specialNeeds' rows='3'
+                                    placeholder='e.g., mobility assistance, medical equipment, therapy animals, etc.'></textarea>
+                                <small>We maintain strict confidentiality for medical
+                                    information</small>
+                            </div>
+
+                            <div class='form-group'>
+                                <label for='additional-info'>Additional Information</label>
+                                <textarea id='additional-info' name='additionalInfo' rows='3'
+                                    placeholder='Any other information that might help us serve you better...'></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- Verification & Consent -->
+                        <fieldset>
+                            <legend>Verification & Consent</legend>
+
+                            <div class='form-group'>
+                                <div class='checkbox-group'>
+                                    <input type='checkbox' id='income-verification' name='incomeVerification'
+                                        required />
+                                    <label for='income-verification' class='form-label-reset'>I authorize Properties 4
+                                        Creations to verify the
+                                        information provided, including income and voucher status
+                                        *</label>
+                                </div>
+                                <span class='error-message'>Authorization is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <div class='checkbox-group'>
+                                    <input type='checkbox' id='background-check' name='backgroundCheck' required />
+                                    <label for='background-check' class='form-label-reset'>I understand that a
+                                        background check may be conducted as
+                                        part of the leasing process *</label>
+                                </div>
+                                <span class='error-message'>Understanding is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <div class='checkbox-group'>
+                                    <input type='checkbox' id='fair-housing' name='fairHousing' required />
+                                    <label for='fair-housing' class='form-label-reset'>I understand that all properties
+                                        are available on a
+                                        first-come, first-served basis and comply with Fair
+                                        Housing Laws *</label>
+                                </div>
+                                <span class='error-message'>Fair Housing understanding is required</span>
+                            </div>
+
+                            <div class='form-group'>
+                                <div class='checkbox-group'>
+                                    <input type='checkbox' id='privacy-consent' name='privacyConsent' required />
+                                    <label for='privacy-consent' class='form-label-reset'>I have read and agree to the
+                                        Privacy Policy and
+                                        understand how my information will be used *</label>
+                                </div>
+                                <span class='error-message'>Privacy Policy agreement is required</span>
+                            </div>
+                        </fieldset>
+
+                        <button type='submit' class='submit-btn'>
+                            Submit Application
+                        </button>
+
+                        <p class='legal-notice'>
+                            <small>This application is confidential and will only be used for
+                                housing assistance purposes. You can withdraw this application
+                                at any time. We comply with all Fair Housing laws and do not
+                                discriminate.</small>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUIDANCE SECTION -->
+        <section class='impact-snapshot'>
+            <div class='container'>
+                <h2>Application Process Overview</h2>
+                <div class='process-steps'>
+                    <div class='process-step'>
+                        <h3>1. Submit Application</h3>
+                        <p>Complete the form above. We'll review within 24-48 hours.</p>
+                    </div>
+                    <div class='process-step'>
+                        <h3>2. Document Review</h3>
+                        <p>We'll verify your voucher and income information.</p>
+                    </div>
+                    <div class='process-step'>
+                        <h3>3. Property Matching</h3>
+                        <p>If approved, we'll show you properties that fit your needs.</p>
+                    </div>
+                    <div class='process-step'>
+                        <h3>4. Lease Signing</h3>
+                        <p>Complete leasing paperwork and move into your new home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src='/js/accessibility-enhanced.js'></script>
+    <script src='/js/main.js' type='module'></script>
+
+    <script>
+        // APPLICATION FORM JAVASCRIPT
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('application-form');
+            const successMessage = document.getElementById('success-message');
+            const applicantType = document.getElementById('applicant-type');
+            const militaryGroup = document.getElementById('military-service-group');
+
+            // Hide success message by default
+            successMessage.style.display = 'none';
+
+            // Show/hide military service field based on applicant type
+            applicantType.addEventListener('change', function () {
+                if (this.value === 'veteran' || this.value === 'spouse') {
+                    militaryGroup.style.display = 'block';
+                    document.getElementById('military-service').required = true;
+                } else {
+                    militaryGroup.style.display = 'none';
+                    document.getElementById('military-service').required = false;
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isValid = true;
+                const formGroups = form.querySelectorAll('.form-group');
+
+                formGroups.forEach((group) => {
+                    const input = group.querySelector('input, select, textarea');
+                    const errorMessage = group.querySelector('.error-message');
+
+                    if (
+                        input &&
+                        input.hasAttribute('required') &&
+                        !input.value.trim()
+                    ) {
+                        isValid = false;
+                        errorMessage.style.display = 'block';
+                        input.classList.add('error');
+                    } else {
+                        errorMessage.style.display = 'none';
+                        input.classList.remove('error');
+                    }
+
+                    // Email validation
+                    if (input && input.type === 'email' && input.value) {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(input.value)) {
+                            isValid = false;
+                            errorMessage.textContent = 'Please enter a valid email address';
+                            errorMessage.style.display = 'block';
+                            input.classList.add('error');
+                        }
+                    }
+
+                    // Phone validation
+                    if (input && input.type === 'tel' && input.value) {
+                        const phoneRegex = /^[0-9\-\+\(\)\s]+$/;
+                        if (!phoneRegex.test(input.value)) {
+                            isValid = false;
+                            errorMessage.textContent = 'Please enter a valid phone number';
+                            errorMessage.style.display = 'block';
+                            input.classList.add('error');
+                        }
+                    }
+                });
+
+                if (isValid) {
+                    // Here you would typically send the form data to a server
+                    // For now, we'll just show the success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

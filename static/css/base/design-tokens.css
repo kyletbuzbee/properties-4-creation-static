@@ -1,0 +1,100 @@
+:root {
+  /* Brand Colors */
+  --color-primary-navy: #0b1120;
+  --color-primary-wood: #c28e5a;
+  --color-primary-walnut: #8b5e3c;
+  --color-primary-beige: #f5f5f0;
+  --color-primary-gold: #c28e5a;
+
+  /* Neutral Colors */
+  --color-neutral-white: #ffffff;
+  --color-neutral-black: #000000;
+  --color-neutral-gray-50: #f9fafb;
+  --color-neutral-gray-100: #f3f4f6;
+  --color-neutral-gray-200: #e5e7eb;
+  --color-neutral-gray-300: #d1d5db;
+  --color-neutral-gray-400: #9ca3af;
+  --color-neutral-gray-500: #6b7280;
+  --color-neutral-gray-600: #4b5563;
+  --color-neutral-gray-700: #374151;
+  --color-neutral-gray-800: #1f2937;
+  --color-neutral-gray-900: #111827;
+
+  /* Semantic Colors */
+  --color-semantic-error: #ef4444;
+  --color-semantic-success: #10b981;
+  --color-semantic-warning: #f59e0b;
+  --color-semantic-info: #3b82f6;
+
+  /* Typography */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-heading: 'Merriweather', Georgia, serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* Border radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;
+  --radius-base: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-none: 0 0 #0000;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Z-index */
+  --z-index-skip-link: 999999;
+  --z-index-header: 1000;
+  --z-index-modal: 10000;
+  --z-index-toast: 10001;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --color-primary-navy: #f5f5f0;
+  --color-primary-wood: #d99a6a;
+  --color-primary-walnut: #b87a4a;
+  --color-primary-beige: #0b1120;
+  --color-primary-gold: #d99a6a;
+
+  --color-neutral-white: #0b1120;
+  --color-neutral-black: #f5f5f0;
+  --color-neutral-gray-50: #1f2937;
+  --color-neutral-gray-100: #111827;
+  --color-neutral-gray-200: #374151;
+  --color-neutral-gray-300: #4b5563;
+  --color-neutral-gray-400: #6b7280;
+  --color-neutral-gray-500: #9ca3af;
+  --color-neutral-gray-600: #d1d5db;
+  --color-neutral-gray-700: #e5e7eb;
+  --color-neutral-gray-800: #f3f4f6;
+  --color-neutral-gray-900: #f9fafb;
+}

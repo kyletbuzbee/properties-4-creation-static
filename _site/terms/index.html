@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Terms of Service - Properties 4 Creations</title>
+    <link rel='manifest' href='/manifest.json' />
+    
+    <meta name='msapplication-TileColor' content='#0B1120' />
+    <meta name='description'
+        content='Terms of service for Properties 4 Creations veteran housing services and website use.' />
+</head>
+
+<body>
+    <!-- Skip Link -->
+    <a href='#main' class='skip-link'>Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+    <main id='main'>
+        <!-- PAGE HEADER -->
+        <section class='page-banner page-banner-terms'>
+            <div class='container'>
+                <h1>Terms of Service</h1>
+                <p>Agreement for using our housing services and website</p>
+            </div>
+        </section>
+
+        <!-- TERMS CONTENT -->
+        <section class='terms-container container'>
+            <div class='resources-header'>
+                <p class='last-updated'>
+                    <strong>Last Updated: December 14, 2025</strong>
+                </p>
+            </div>
+
+            <div class='terms-content'>
+                <div class='terms-section'>
+                    <h2>Acceptance of Terms</h2>
+                    <p>
+                        By accessing and using this website operated by Properties 4
+                        Creations ('the Company,' 'we,' 'us,' or 'our'), you accept and
+                        agree to be bound by the terms and provision of this agreement.
+                        These terms apply to all visitors, users, and others who access or
+                        use the service.
+                    </p>
+                    <p>
+                        If you do not agree to these terms, you may not access or use this
+                        website or our services. We are a veteran-owned business
+                        specializing in premium, renovated housing for veterans and
+                        families in East Texas.
+                    </p>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Housing Services Agreement</h2>
+
+                    <h3>Application Process</h3>
+                    <p>When you submit an application for housing:</p>
+                    <ul>
+                        <li>All information provided must be truthful and accurate</li>
+                        <li>We reserve the right to verify all information submitted</li>
+                        <li>
+                            Applications are reviewed in order of completion and suitability
+                        </li>
+                        <li>
+                            We may request additional documentation to verify eligibility
+                        </li>
+                        <li>
+                            Meeting application requirements does not guarantee housing
+                            placement
+                        </li>
+                    </ul>
+
+                    <h3>Eligibility Requirements</h3>
+                    <p>To be eligible for our housing services, you must:</p>
+                    <ul>
+                        <li>Hold a valid housing voucher (Section 8, HUD-VASH, etc.)</li>
+                        <li>
+                            Meet income requirements as specified by your housing program
+                        </li>
+                        <li>
+                            Pass background checks conducted by licensed screening companies
+                        </li>
+                        <li>Provide required documentation and certifications</li>
+                        <li>Comply with all Fair Housing and program regulations</li>
+                    </ul>
+
+                    <h3>Lease Agreements</h3>
+                    <p>Successful applicants will be required to:</p>
+                    <ul>
+                        <li>Sign a residential lease agreement</li>
+                        <li>Pay security deposits as required by state law</li>
+                        <li>Maintain the property in good condition</li>
+                        <li>Comply with all lease terms and conditions</li>
+                        <li>Continue to meet program eligibility requirements</li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Website Use Terms</h2>
+
+                    <h3>Permitted Use</h3>
+                    <p>You may use our website for:</p>
+                    <ul>
+                        <li>Browsing available properties and services</li>
+                        <li>Submitting housing applications</li>
+                        <li>Accessing information about housing programs</li>
+                        <li>Communicating with our team</li>
+                        <li>
+                            Learning about our renovation standards and quality guarantees
+                        </li>
+                    </ul>
+
+                    <h3>Prohibited Activities</h3>
+                    <p>You may not:</p>
+                    <ul>
+                        <li>Submit false or fraudulent information</li>
+                        <li>Use the website for any unlawful purpose</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Interfere with the proper functioning of the website</li>
+                        <li>Use automated systems to scrape or download content</li>
+                        <li>Impersonate any person or entity</li>
+                        <li>Distribute spam or unsolicited communications</li>
+                    </ul>
+
+                    <h3>Content and Intellectual Property</h3>
+                    <p>
+                        All content on this website, including text, images, logos, and
+                        design elements:
+                    </p>
+                    <ul>
+                        <li>
+                            Is the property of Properties 4 Creations or our licensors
+                        </li>
+                        <li>
+                            Is protected by copyright and other intellectual property laws
+                        </li>
+                        <li>
+                            May not be reproduced, distributed, or modified without
+                            permission
+                        </li>
+                        <li>May be used only for legitimate business purposes</li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Privacy and Data Protection</h2>
+                    <p>
+                        Your privacy is important to us. Our collection and use of
+                        personal information is governed by our Privacy Policy, which is
+                        incorporated into these terms by reference. By using our services,
+                        you consent to our data practices as outlined in our Privacy
+                        Policy.
+                    </p>
+
+                    <h3>Information Security</h3>
+                    <p>
+                        We implement reasonable security measures to protect your
+                        information, but:
+                    </p>
+                    <ul>
+                        <li>
+                            No method of transmission over the internet is 100% secure
+                        </li>
+                        <li>We cannot guarantee absolute security of your information</li>
+                        <li>
+                            You are responsible for maintaining the confidentiality of your
+                            account credentials
+                        </li>
+                        <li>
+                            You should report any suspected security breaches immediately
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Fair Housing Compliance</h2>
+                    <p>
+                        Properties 4 Creations is committed to Fair Housing principles:
+                    </p>
+                    <ul>
+                        <li>
+                            We do not discriminate based on race, color, religion, sex,
+                            national origin, familial status, or disability
+                        </li>
+                        <li>
+                            We provide reasonable accommodations for applicants with
+                            disabilities
+                        </li>
+                        <li>
+                            All housing decisions are based on program eligibility and
+                            property suitability
+                        </li>
+                        <li>
+                            We comply with all federal, state, and local fair housing laws
+                        </li>
+                        <li>
+                            Discrimination complaints may be reported to HUD and state
+                            agencies
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Disclaimer of Warranties</h2>
+                    <p>
+                        Our website and services are provided 'as is' and 'as available.'
+                        We disclaim all warranties, including but not limited to:
+                    </p>
+                    <ul>
+                        <li>
+                            Implied warranties of merchantability and fitness for a
+                            particular purpose
+                        </li>
+                        <li>
+                            Warranties that the website will be error-free or uninterrupted
+                        </li>
+                        <li>
+                            Warranties regarding the accuracy or reliability of content
+                        </li>
+                        <li>Warranties that defects will be corrected</li>
+                    </ul>
+                    <p>
+                        We do not warrant that our website will meet your specific
+                        requirements or that any errors will be corrected.
+                    </p>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Limitation of Liability</h2>
+                    <p>
+                        To the fullest extent permitted by law, Properties 4 Creations
+                        shall not be liable for:
+                    </p>
+                    <ul>
+                        <li>
+                            Any indirect, incidental, special, consequential, or punitive
+                            damages
+                        </li>
+                        <li>
+                            Loss of profits, data, use, goodwill, or other intangible losses
+                        </li>
+                        <li>
+                            Damages resulting from your use or inability to use our services
+                        </li>
+                        <li>
+                            Damages resulting from unauthorized access to your information
+                        </li>
+                        <li>Any other matter related to our services or website</li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Property Information and Representations</h2>
+                    <p>While we strive to provide accurate property information:</p>
+                    <ul>
+                        <li>
+                            Property availability and features may change without notice
+                        </li>
+                        <li>
+                            Images and descriptions are for informational purposes only
+                        </li>
+                        <li>Actual properties may differ from marketing materials</li>
+                        <li>
+                            We recommend visiting properties in person before making
+                            decisions
+                        </li>
+                        <li>
+                            Renovation standards and warranties are as specified in
+                            individual lease agreements
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Governing Law and Dispute Resolution</h2>
+                    <p>
+                        These terms are governed by the laws of the State of Texas. Any
+                        disputes arising from:
+                    </p>
+                    <ul>
+                        <li>
+                            Housing applications or tenancy will be resolved in Texas courts
+                        </li>
+                        <li>Website use may be subject to binding arbitration</li>
+                        <li>
+                            Fair housing complaints may be filed with appropriate agencies
+                        </li>
+                        <li>
+                            We encourage direct communication to resolve disputes when
+                            possible
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Changes to Terms</h2>
+                    <p>
+                        We reserve the right to modify these terms at any time. Changes
+                        will be:
+                    </p>
+                    <ul>
+                        <li>Posted on this page with an updated 'Last Updated' date</li>
+                        <li>Effective immediately upon posting for website use</li>
+                        <li>
+                            Communicated to active applicants via email for service-related
+                            changes
+                        </li>
+                        <li>
+                            Continued use of our services constitutes acceptance of modified
+                            terms
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Severability</h2>
+                    <p>
+                        If any provision of these terms is found to be unenforceable or
+                        invalid, the remaining provisions will continue to be valid and
+                        enforceable to the fullest extent permitted by law.
+                    </p>
+                </div>
+
+                <div class='terms-section'>
+                    <h2>Contact Information</h2>
+                    <p>
+                        If you have questions about these Terms of Service, please contact
+                        us:
+                    </p>
+
+                    <div class='contact-methods'>
+                        <p>
+                            <strong>Properties 4 Creations</strong><br />
+                            Legal Department<br />
+                            Tyler, Texas
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong> legal@properties4creations.com<br />
+                            <strong>Phone:</strong> (903) 555-1234
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

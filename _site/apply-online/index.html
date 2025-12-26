@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>Online Application - Properties 4 Creations</title>
+<link rel='manifest' href='/manifest.json' />
+<link rel='apple-touch-icon' href='/images/logo/brand-logo.svg' />
+<link rel='icon' type='image/svg+xml' href='/images/logo/brand-logo.svg' />
+<meta name='msapplication-TileColor' content='#0B1120' />
+<meta name='description' content='Submit your application for a property online.' />
+<link rel='canonical' href='/apply-online/' />
+
+<!-- Open Graph -->
+<meta property='og:type' content='website' />
+<meta property='og:title' content='Online Application - Properties 4 Creations' />
+<meta property='og:description' content='Submit your application for a property online.' />
+<meta property='og:url' content='/apply-online/' />
+<meta property='og:image' content='/images/logo/brand-logo.svg' />
+<meta property='og:site_name' content='Properties4Creation' />
+<meta property='og:locale' content='en_US' />
+<meta property='og:updated_time' content='December 24, 2025' />
+
+<!-- Twitter Cards -->
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' content='Online Application - Properties 4 Creations' />
+<meta name='twitter:description' content='Submit your application for a property online.' />
+<meta name='twitter:image' content='/images/logo/brand-logo.svg' />
+<meta name='twitter:site' content='@Properties4Creation' />
+<meta name='twitter:creator' content='@Properties4Creation' />
+
+<!-- Theme Colors for light/dark -->
+<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+<meta name='theme-color' content='#0B1120' media='(prefers-color-scheme: dark)' />
+
+<!-- Favicon fallbacks -->
+<link rel='icon' href='/favicon.ico' sizes='any' />
+
+<!-- Structured Data for SEO -->
+<script type='application/ld+json'>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Properties4Creation",
+  "url": "",
+  "logo": "/images/logo/brand-logo.svg",
+  "description": "Veteran & family housing website in East Texas",
+  "sameAs": [
+    "https://www.facebook.com/Properties4Creation",
+    "https://twitter.com/Properties4Creation",
+    "https://www.instagram.com/Properties4Creation"
+  ]
+}
+</script>
+
+<!-- Preload Critical Assets -->
+<link rel='preload' href='/css/style.css' as='style' />
+
+<!-- Load main stylesheet globally for all pages -->
+<link rel='stylesheet' href='/css/style.css' />
+
+<!-- DNS Prefetch for Performance -->
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.gstatic.com' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//www.google-analytics.com' />
+<link rel='dns-prefetch' href='//formspree.io' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//unpkg.com' />
+
+<!-- Preconnect for Performance -->
+<link rel='preconnect' href='https://fonts.googleapis.com' crossorigin />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel='preconnect' href='https://www.googletagmanager.com' crossorigin />
+<link rel='preconnect' href='https://www.google-analytics.com' crossorigin />
+<link rel='preconnect' href='https://formspree.io' crossorigin />
+<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin />
+<link rel='preconnect' href='https://unpkg.com' crossorigin />
+
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+  <main id="main-content">
+    
+<main id="main-content">
+  <section class="container application-section">
+    <h1>Property Application Form</h1>
+    <p>Please fill out the form below to apply for a property. All fields are required unless otherwise noted.</p>
+
+    <form id="property-application-form" class="application-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="applicant-name">Full Name</label>
+        <input type="text" id="applicant-name" name="name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="applicant-email">Email Address</label>
+        <input type="email" id="applicant-email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="applicant-phone">Phone Number</label>
+        <input type="tel" id="applicant-phone" name="phone" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="property-interest">Property of Interest</label>
+        <select id="property-interest" name="propertyOfInterest" required>
+          <option value="">-- Select a Property --</option>
+          <!-- Options will be dynamically loaded by JavaScript -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="applicant-message">Additional Message (Optional)</label>
+        <textarea id="applicant-message" name="message" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="applicant-documents">Upload Documents (e.g., ID, Proof of Income, max 5 files, 10MB each)</label>
+        <input type="file" id="applicant-documents" name="documents" multiple accept=".jpeg,.jpg,.png,.pdf,.doc,.docx">
+        <small>Accepted formats: JPEG, PNG, PDF, DOC, DOCX. Max 5 files, 10MB per file.</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+      <div id="application-message" class="message-box error-message" aria-live="polite" style="display: none;"></div>
+      <div id="application-success" class="message-box success-message" aria-live="polite" style="display: none;">
+        Your application has been submitted successfully! We will review it shortly.
+      </div>
+    </form>
+  </section>
+</main>
+
+<script type="module">
+  import { auth } from '/js/auth.js'; // Potentially use auth for pre-filling
+  import { propertiesData } from '/js/main.js'; // To populate property dropdown
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Populate properties dropdown
+    const propertySelect = document.getElementById('property-interest');
+    if (propertySelect && propertiesData && propertiesData.length > 0) {
+      propertiesData.forEach(prop => {
+        const option = document.createElement('option');
+        option.value = prop.name;
+        option.textContent = prop.name;
+        propertySelect.appendChild(option);
+      });
+    }
+
+    const applicationForm = document.getElementById('property-application-form');
+    const applicationMessage = document.getElementById('application-message');
+    const applicationSuccess = document.getElementById('application-success');
+
+    if (applicationForm) {
+      applicationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        applicationMessage.style.display = 'none';
+        applicationMessage.textContent = '';
+        applicationSuccess.style.display = 'none';
+
+        const formData = new FormData(applicationForm);
+
+        try {
+          const res = await fetch('/api/applications', {
+            method: 'POST',
+            body: formData // FormData object is automatically set with Content-Type: multipart/form-data
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            applicationSuccess.style.display = 'block';
+            applicationForm.reset();
+            // Clear file input manually if needed (some browsers don't reset file input with form.reset())
+            const fileInput = document.getElementById('applicant-documents');
+            if (fileInput) fileInput.value = '';
+          } else {
+            applicationMessage.textContent = data.msg || 'Application submission failed.';
+            applicationMessage.style.display = 'block';
+          }
+        } catch (err) {
+          console.error('Application submission error:', err);
+          applicationMessage.textContent = 'Network error during application submission.';
+          applicationMessage.style.display = 'block';
+        }
+      });
+    }
+  });
+</script>
+
+  </main>
+
+  <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+ <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script> <script src='/js/accessibility-enhanced.js'></script>
+ <script src='/js/main.js' type='module'></script>
+</body>
+
+</html>

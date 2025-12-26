@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block og_title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block og_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block og_url %}/{% endblock %}
+
+{% block twitter_title %}Properties 4 Creation - Housing Veterans and Families Throughout East Texas{% endblock %}
+
+{% block twitter_description %}Providing premium, renovated housing for veterans and families in East Texas. 100% Voucher Acceptance for Section 8 & HUD-VASH programs.{% endblock %}
+
+{% block content %}
+  <!-- HERO SECTION -->
+  <section class="hero" aria-label="Welcome to Properties 4 Creations">
+    <div class="hero-content">
+      <h2>Building Homes, Rebuilding Lives</h2>
+      <p class="hero-subtitle">
+        Premium, renovated housing for veterans and families in East Texas
+      </p>
+      <p class="hero-tagline">
+        Veteran-Owned & Operated | 100% Section 8 & HUD-VASH Acceptance
+      </p>
+      <div class="hero-ctas">
+        <a href="/properties/" class="btn btn-primary">Browse Available Homes</a>
+        <a href="/apply/" class="btn btn-secondary">Start Your Application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT SNAPSHOT -->
+  <section class="impact-snapshot" aria-label="Our impact in numbers">
+    <div class="container">
+      <h2>Real Results for Real Families</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">55+</span>
+          <span class="stat-label">Safe Homes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">25+</span>
+          <span class="stat-label">Properties Renovated</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Veterans Housed</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Voucher Acceptance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="map-section" aria-label="Our service area in East Texas">
+    <div class="container">
+      <h2>Service Area</h2>
+      <p>
+        Serving communities across East Texas, from Tyler to Longview and beyond.
+      </p>
+      <div id="map" class="leaflet-map"></div>
+    </div>
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section class="trust-section" aria-label="Why choose Properties 4 Creations">
+    <div class="container">
+      <h2>Why Choose Properties 4 Creations?</h2>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="home"></i></div>
+          <h3>Premium Renovations</h3>
+          <p>
+            Every home meets our rigorous renovation standards: new HVAC, roofing, electrical, and plumbing systems.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="shield"></i></div>
+          <h3>Veteran-Led</h3>
+          <p>
+            Founded and operated by veterans, for veterans. We understand your needs and are committed to your success.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="check-circle"></i></div>
+          <h3>100% Voucher Acceptance</h3>
+          <p>
+            We accept Section 8, HUD-VASH, and other housing vouchers. No discrimination.
+          </p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon"><i data-lucide="eye"></i></div>
+          <h3>Transparent Process</h3>
+          <p>
+            Clear, honest communication every step of the way. See our full renovation standards and quality commitments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Find Your Home?</h2>
+      <p>
+        Browse our available properties or start your application today.
+      </p>
+      <a href="/apply/" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Map Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // MAP INITIALIZATION
+      if (document.getElementById('map')) {
+        const map = L.map('map').setView([32.35, -95.3], 10);
+        L.Icon.Default.prototype.options.iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
+        L.Icon.Default.prototype.options.iconRetinaUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png';
+        L.Icon.Default.prototype.options.shadowUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png';
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19,
+        }).addTo(map);
+
+        L.marker([32.351, -95.301], {
+          title: 'Tyler Properties',
+        })
+          .addTo(map)
+          .bindPopup('<b>Tyler, TX</b><br>Multiple Properties Available');
+
+        L.marker([32.5, -94.74], {
+          title: 'Longview Properties',
+        })
+          .addTo(map)
+          .bindPopup('<b>Longview, TX</b><br>Multiple Properties Available');
+      }
+    });
+  </script>
+{% endblock %}
+
+{% block extra_js %}
+  <!-- Additional page-specific JavaScript can go here -->
+{% endblock %}

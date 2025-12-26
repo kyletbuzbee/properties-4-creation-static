@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Transparency - Properties 4 Creations</title>
+    <link rel='manifest' href='/manifest.json' />
+    
+    <meta name='msapplication-TileColor' content='#0B1120' />
+    <meta name='description'
+        content='Our renovation standards and quality commitments for veteran housing. See exactly what you get with Properties 4 Creations.' />
+</head>
+
+<body>
+    <!-- Skip Link -->
+    <a href='#main' class='skip-link'>Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+    <main id='main'>
+
+        <!-- PAGE HEADER -->
+        <section class='page-banner' style="
+          background-image: url(&quot;/images/banners/hero-transparency-banner.webp&quot;);
+          background-size: cover;
+          background-position: center;
+        ">
+            <div class='container'>
+                <h1>Our Commitment to Quality</h1>
+                <p>Complete transparency in our renovation standards and processes</p>
+            </div>
+        </section>
+
+        <!-- RENOVATION STANDARDS -->
+        <section class='transparency-container container'>
+            <div class='resources-header'>
+                <h1>Premium Renovation Standards</h1>
+                <p>
+                    Every home we offer meets our rigorous renovation standards. We
+                    believe in complete transparency, which is why we're sharing exactly
+                    what you get.
+                </p>
+            </div>
+
+            <div class='quality-standards'>
+                <div class='standard-card'>
+                    <h3><i data-lucide='fan'></i> HVAC System</h3>
+                    <ul class='checklist'>
+                        <li>Certified installation by licensed technicians</li>
+                        <li>Full system inspection and testing</li>
+                        <li>New thermostats with programmable features</li>
+                        <li>12-month warranty on all parts and labor</li>
+                        <li>Annual maintenance recommended</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='home'></i> Roof System</h3>
+                    <ul class='checklist'>
+                        <li>Complete tear-off and replacement (not just repair)</li>
+                        <li>Premium architectural shingles</li>
+                        <li>New flashing and vent installations</li>
+                        <li>Gutters and downspouts included</li>
+                        <li>10-year manufacturer warranty</li>
+                        <li>Licensed roofing contractors only</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='settings'></i> Plumbing System</h3>
+                    <ul class='checklist'>
+                        <li>Copper pipes throughout the property</li>
+                        <li>New fixtures and faucets</li>
+                        <li>Updated water heater with warranty</li>
+                        <li>Full system pressure testing</li>
+                        <li>No leaks or drips guaranteed</li>
+                        <li>Professional plumbing inspections</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='zap'></i> Electrical System</h3>
+                    <ul class='checklist'>
+                        <li>Modern electrical panel upgrade</li>
+                        <li>GFCI outlets in all required areas</li>
+                        <li>New interior and exterior switches</li>
+                        <li>Updated lighting fixtures</li>
+                        <li>Electrical inspection certificate</li>
+                        <li>Complies with all building codes</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='door'></i> Windows & Doors</h3>
+                    <ul class='checklist'>
+                        <li>All exterior doors replaced if needed</li>
+                        <li>Updated interior doors (smooth operation)</li>
+                        <li>New locks and hardware included</li>
+                        <li>Weatherstripping applied throughout</li>
+                        <li>Warranty on all door hardware</li>
+                        <li>Ensure no drafts or gaps</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='brush'></i> Interior Finishes</h3>
+                    <ul class='checklist'>
+                        <li>Professional painting throughout</li>
+                        <li>New appliances installed and tested</li>
+                        <li>Cleaned and sanitized before occupancy</li>
+                        <li>All carpet cleaned or replaced</li>
+                        <li>Lights and switches replaced</li>
+                        <li>Ceiling fans in appropriate rooms</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='shield-check'></i> Safety Standards</h3>
+                    <ul class='checklist'>
+                        <li>Smoke detectors in every bedroom</li>
+                        <li>Carbon monoxide detector installed</li>
+                        <li>Fire extinguishers provided</li>
+                        <li>All safety equipment inspected</li>
+                        <li>Emergency exit routes clear</li>
+                        <li>Access to emergency services</li>
+                    </ul>
+                </div>
+
+                <div class='standard-card'>
+                    <h3><i data-lucide='accessibility'></i> Accessibility Features</h3>
+                    <ul class='checklist'>
+                        <li>Ramps and accessibility modifications available</li>
+                        <li>Low-threshold entries where requested</li>
+                        <li>Wide doorways in common areas</li>
+                        <li>Accessible bathroom features</li>
+                        <li>Accommodations for disabilities considered</li>
+                        <li>Fair Housing accessibility compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUALITY GUARANTEE -->
+        <section class='trust-section'>
+            <div class='container'>
+                <h2>Quality Guarantee</h2>
+                <p>
+                    We stand behind our work. Every renovation includes comprehensive
+                    warranties and quality assurances.
+                </p>
+
+                <div class='warranty-grid'>
+                    <div class='warranty-card'>
+                        <h3>Structural Warranty</h3>
+                        <p>
+                            Foundation, framing, and structural components are warranted for
+                            defects in materials and workmanship for up to 5 years.
+                        </p>
+                    </div>
+                    <div class='warranty-card'>
+                        <h3>Systems Warranty</h3>
+                        <p>
+                            HVAC, plumbing, and electrical systems carry 12-month warranties
+                            on both parts and labor.
+                        </p>
+                    </div>
+                    <div class='warranty-card'>
+                        <h3>Cosmetic Warranty</h3>
+                        <p>
+                            Paint, flooring, and cosmetic improvements are warranted for 6
+                            months against defects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS TRANSPARENCY -->
+        <section class='impact-snapshot'>
+            <div class='container'>
+                <h2>Our Renovation Process</h2>
+                <p>
+                    We believe in complete transparency in how we work. Here's exactly
+                    how we transform properties for our veterans and families.
+                </p>
+
+                <div class='process-timeline'>
+                    <div class='timeline-item'>
+                        <div class='timeline-number'>1</div>
+                        <h3>Property Acquisition</h3>
+                        <p>
+                            Properties are carefully selected based on location, condition,
+                            and potential for veteran housing.
+                        </p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-number'>2</div>
+                        <h3>Assessment & Planning</h3>
+                        <p>
+                            Professional inspectors assess current condition and create
+                            detailed renovation plans with cost estimates.
+                        </p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-number'>3</div>
+                        <h3>Licensed Contractors</h3>
+                        <p>
+                            All work is performed by licensed, insured contractors
+                            experienced in residential renovations.
+                        </p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-number'>4</div>
+                        <h3>Quality Inspections</h3>
+                        <p>
+                            Independent inspections at multiple stages ensure work meets our
+                            standards and local building codes.
+                        </p>
+                    </div>
+                    <div class='timeline-item'>
+                        <div class='timeline-number'>5</div>
+                        <h3>Final Certification</h3>
+                        <p>
+                            Properties receive final inspections and certificates before
+                            being made available to applicants.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COST BREAKDOWN -->
+        <section class='cost-breakdown'>
+            <div class='container'>
+                <div class='resources-header'>
+                    <h1>Investment in Our Community</h1>
+                    <p>
+                        See the actual investment we make in each property to understand
+                        the value you receive.
+                    </p>
+                </div>
+
+                <div class='cost-card'>
+                    <h2>Average Renovation Investment Per Property</h2>
+                    <div class='cost-stats'>
+                        <div class='cost-stat'>
+                            <span class='cost-amount'>$30,000+</span>
+                            <span class='cost-label'>Average Investment</span>
+                        </div>
+                        <div class='cost-stat'>
+                            <span class='cost-amount'>25+</span>
+                            <span class='cost-label'>Properties Renovated</span>
+                        </div>
+                        <div class='cost-stat'>
+                            <span class='cost-amount'>20+</span>
+                            <span class='cost-label'>Veterans Housed</span>
+                        </div>
+                    </div>
+
+                    <div class='cost-breakdown-details'>
+                        <h3>Typical Renovation Budget Allocation</h3>
+                        <ul>
+                            <li>
+                                <strong>HVAC System:</strong> $8,000 - $12,000 (includes full
+                                system replacement)
+                            </li>
+                            <li>
+                                <strong>Roofing:</strong> $5,000 - $8,000 (complete tear-off
+                                and replacement)
+                            </li>
+                            <li>
+                                <strong>Plumbing:</strong> $4,000 - $7,000 (copper pipes,
+                                fixtures, water heater)
+                            </li>
+                            <li>
+                                <strong>Electrical:</strong> $3,000 - $5,000 (panel upgrade,
+                                new wiring, fixtures)
+                            </li>
+                            <li>
+                                <strong>Interior Finishes:</strong> $3,000 - $6,000 (paint,
+                                flooring, appliances)
+                            </li>
+                            <li>
+                                <strong>Structural & Safety:</strong> $2,000 - $4,000
+                                (inspections, safety features)
+                            </li>
+                            <li>
+                                <strong>Permits & Inspections:</strong> $500 - $1,000
+                                (required by law)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class='cta-section'>
+            <div class='container'>
+                <h2>Quality You Can Trust</h2>
+                <p>
+                    We invite you to tour our properties and see the results of our
+                    renovation standards firsthand.
+                </p>
+                <div class='cta-buttons'>
+                    <a href='properties.html' class='btn btn-primary'>Browse Properties</a>
+                    <a href='apply.html' class='btn btn-secondary'>Start Application</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

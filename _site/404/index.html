@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Page Not Found - Properties 4 Creations</title>
+    <link rel='manifest' href='/manifest.json' />
+    
+    <meta name='msapplication-TileColor' content='#0B1120' />
+    <meta name='description' content='The page you' re looking for doesn't exist. Return to Properties 4 Creations for
+        veteran housing in East Texas.' />
+</head>
+
+<body>
+    <!-- Skip Link -->
+    <a href='#main' class='skip-link'>Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+    <main id='main'>
+        <!-- 404 ERROR SECTION -->
+        <section class='error-page' role='alert' aria-labelledby='error-title'>
+            <div class='container'>
+                <div class='error-content'>
+                    <div class='error-icon' aria-hidden='true'>
+                        <i data-lucide='home-x'></i>
+                    </div>
+
+                    <h1 id='error-title' class='error-title'>404</h1>
+                    <h2 class='error-subtitle'>Page Not Found</h2>
+
+                    <p class='error-message'>
+                        The page you're looking for doesn't exist or has been moved. But
+                        don't worry - we can help you find your way home.
+                    </p>
+
+                    <div class='error-actions' role='navigation' aria-label='Quick actions'>
+                        <a href='index.html' class='btn btn-primary' role='button'>Go to Homepage</a>
+                        <a href='properties.html' class='btn btn-secondary' role='button'>Browse Properties</a>
+                        <a href='contact.html' class='btn btn-secondary' role='button'>Contact Us</a>
+                    </div>
+
+                    <!-- Popular Links -->
+                    <div class='popular-links'>
+                        <h3>Popular Pages</h3>
+                        <div class='popular-links-grid'>
+                            <div class='link-card'>
+                                <h4>
+                                    <i data-lucide='home' aria-hidden='true'></i>
+                                    Available Properties
+                                </h4>
+                                <p>
+                                    Browse our premium, renovated homes ready for occupancy.
+                                </p>
+                                <a href='properties.html' aria-label='View available properties'>
+                                    View Properties
+                                    <i data-lucide='arrow-right' aria-hidden='true'></i>
+                                </a>
+                            </div>
+
+                            <div class='link-card'>
+                                <h4>
+                                    <i data-lucide='file-text' aria-hidden='true'></i>
+                                    Apply for Housing
+                                </h4>
+                                <p>
+                                    Start your application for Section 8 or HUD-VASH housing.
+                                </p>
+                                <a href='apply.html' aria-label='Start housing application'>
+                                    Start Application
+                                    <i data-lucide='arrow-right' aria-hidden='true'></i>
+                                </a>
+                            </div>
+
+                            <div class='link-card'>
+                                <h4>
+                                    <i data-lucide='phone' aria-hidden='true'></i>
+                                    Get in Touch
+                                </h4>
+                                <p>Contact our veteran team for personalized assistance.</p>
+                                <a href='contact.html' aria-label='Contact our team'>
+                                    Contact Us
+                                    <i data-lucide='arrow-right' aria-hidden='true'></i>
+                                </a>
+                            </div>
+
+                            <div class='link-card'>
+                                <h4>
+                                    <i data-lucide='shield' aria-hidden='true'></i>
+                                    Our Standards
+                                </h4>
+                                <p>See our renovation quality and transparency standards.</p>
+                                <a href='transparency.html' aria-label='Learn about our standards'>
+                                    Learn More
+                                    <i data-lucide='arrow-right' aria-hidden='true'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search Alternative -->
+                    <div class='search-alternative' role='complementary'>
+                        <h3>Looking for something specific?</h3>
+                        <p>
+                            Our team can help you find the right housing solution. Call us
+                            or send us a message.
+                        </p>
+                        <div class='contact-actions'>
+                            <a href='tel:+19035551234' class='btn btn-primary'
+                                aria-label='Call Properties 4 Creations at (903) 555-1234'>
+                                <i data-lucide='phone' aria-hidden='true'></i>
+                                (903) 555-1234
+                            </a>
+                            <a href='mailto:info@properties4creations.com' class='btn btn-secondary'
+                                aria-label='Send email to Properties 4 Creations'>
+                                <i data-lucide='mail' aria-hidden='true'></i>
+                                Send Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VETERAN BADGE SECTION -->
+        <section class='veteran-badge-section'>
+            <div class='container'>
+                <p class='veteran-badge-inline'>
+                    <i data-lucide='award' aria-hidden='true'></i>
+                    Veteran-Owned & Operated | Building Homes, Rebuilding Lives
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src='/js/main.js' type='module'></script>
+
+    <script>
+        // 404 PAGE ANALYTICS
+        document.addEventListener('DOMContentLoaded', function () {
+            // Track 404 errors (if analytics is set up)
+            if (window.gtag) {
+                gtag('event', 'page_not_found', {
+                    page_location: window.location.href,
+                    page_referrer: document.referrer,
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

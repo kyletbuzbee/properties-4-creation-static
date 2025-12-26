@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Kemp Townhome - Properties 4 Creations</title>
+    <link rel='manifest' href='/manifest.json' />
+    
+    <meta name='msapplication-TileColor' content='#0B1120' />
+    <meta name='description'
+        content='Affordable 1BR townhome in Kemp, TX. Section 8 & VA approved with modern amenities. Low-maintenance living perfect for veterans.' />
+</head>
+
+<body>
+    <a href='#main' class='skip-link'>Skip to main content</a>
+
+    <header class="header-glass" role="banner">
+  <div class="skip-to-content">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </div>
+  
+  <div class="nav-container">
+    <div class="brand-container">
+      <a href="/" class="brand-link" aria-label="Properties 4 Creations - Home">
+        <img src="/images/logo/brand-logo.svg" alt="Properties 4 Creations Logo" class="brand-logo" />
+        <span class="brand-text">Properties 4 Creations</span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav class="main-navigation" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <ul class="nav-menu" role="menubar">
+        <li role="none">
+          <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+        </li>
+        <li role="none">
+          <a href="/properties/" class="nav-link" role="menuitem">Properties</a>
+        </li>
+        <li role="none">
+          <a href="/about/" class="nav-link" role="menuitem">About</a>
+        </li>
+        <li role="none">
+          <a href="/impact/" class="nav-link" role="menuitem">Our Impact</a>
+        </li>
+        <li role="none">
+          <a href="/resources/" class="nav-link" role="menuitem">Resources</a>
+        </li>
+        <li role="none">
+          <a href="/contact/" class="nav-link" role="menuitem">Contact</a>
+        </li>
+      </ul>
+      <div id="auth-links" class="nav-auth-links">
+        <!-- Auth links will be dynamically loaded here -->
+      </div>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-text">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script type="module">
+  import { auth } from '/js/auth.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authLinksContainer = document.getElementById('auth-links');
+
+    if (authLinksContainer) {
+      if (auth.isAuthenticated) {
+        authLinksContainer.innerHTML = `
+          <a href="/profile.html" class="btn btn-secondary cta-link" role="menuitem">Profile</a>
+          <button id="logout-btn" class="btn btn-primary cta-link" role="menuitem">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+          auth.logout();
+          window.location.href = '/login.html';
+        });
+      } else {
+        authLinksContainer.innerHTML = `
+          <a href="/login.html" class="btn btn-secondary cta-link" role="menuitem">Login</a>
+          <a href="/register.html" class="btn btn-primary cta-link" role="menuitem">Register</a>
+        `;
+      }
+    }
+  });
+</script>
+
+    <main id='main'>
+        <section class='property-detail-hero kemp-hero'>
+            <div class='container'>
+                <div class='property-hero-content'>
+                    <h1>Kemp Townhome</h1>
+                    <p class='property-location'>
+                        <i data-lucide='map-pin'></i> Kemp, TX
+                    </p>
+                    <div class='property-highlights'>
+                        <div class='highlight-card'>
+                            <span class='highlight-value'>1</span>
+                            <span class='highlight-label'>Bedroom</span>
+                        </div>
+                        <div class='highlight-card'>
+                            <span class='highlight-value'>1</span>
+                            <span class='highlight-label'>Bathroom</span>
+                        </div>
+                        <div class='highlight-card'>
+                            <span class='highlight-value'>650</span>
+                            <span class='highlight-label'>Sq Ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class='property-features'>
+            <div class='container'>
+                <h2>Low-Maintenance Townhome Living</h2>
+                <div class='features-grid'>
+                    <div class='feature-card'>
+                        <div class='feature-icon'><i data-lucide='home'></i></div>
+                        <h3>Maintenance-Free</h3>
+                        <p>HOA handles exterior maintenance and landscaping</p>
+                    </div>
+                    <div class='feature-card'>
+                        <div class='feature-icon'><i data-lucide='shield'></i></div>
+                        <h3>Secure Community</h3>
+                        <p>Gated entry with well-maintained common areas</p>
+                    </div>
+                    <div class='feature-card'>
+                        <div class='feature-icon'><i data-lucide='map-pin'></i></div>
+                        <h3>Convenient Location</h3>
+                        <p>Easy access to Dallas-Fort Worth area via major highways</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class='application-cta'>
+            <div class='container'>
+                <div class='cta-content'>
+                    <h2>Perfect for Independent Veterans</h2>
+                    <p>
+                        This well-maintained townhome offers affordable, maintenance-free
+                        living in a quiet community. Section 8 and VA approved.
+                    </p>
+                    <div class='cta-buttons'>
+                        <a href='apply.html' class='btn btn-primary'>Apply for This Home</a>
+                        <a href='properties.html' class='btn btn-secondary'>View Other Properties</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+<footer class='footer' role='contentinfo'>
+  <div class='container'>
+    <!-- Simplified Emergency Banner -->
+    <div class='emergency-banner'>
+      <p><strong>24/7 Support:</strong> Veterans Crisis <a href='tel:988'>988</a> | Housing <a href='tel:1-800-827-1000'>1-800-827-1000</a></p>
+    </div>
+
+    <!-- Condensed Footer Grid (3 columns max) -->
+    <div class='footer-content'>
+      <div class='footer-section'>
+        <h4>Properties 4 Creations</h4>
+        <p>Veteran-owned housing in Tyler, Longview, Marshall</p>
+        <div class='veteran-badge'>🎖️ Veteran-Owned & Operated</div>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href='/'>Home</a></li>
+          <li><a href='/properties'>Properties</a></li>
+          <li><a href='/apply'>Apply Now</a></li>
+          <li><a href='/resources'>Resources</a></li>
+        </ul>
+      </div>
+
+      <div class='footer-section'>
+        <h4>Contact</h4>
+        <p>📞 <a href='tel:903-555-1234'>903-555-1234</a></p>
+        <p>✉️ <a href='mailto:info@properties4creation.com'>info@properties4creation.com</a></p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class='footer-bottom'>
+      <p>&copy; 2025 Properties 4 Creations. <a href='/privacy'>Privacy</a> | <a href='/terms'>Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+    <script src='https://unpkg.com/lucide@0.294.0/dist/umd/lucide.js' crossorigin='anonymous'></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src='/js/main.js' type='module'></script>
+</body>
+
+</html>
